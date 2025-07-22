@@ -28,7 +28,8 @@ Outros desafios de carreira
 
 Dicas de Cursos Gratuitos para Carreira:
 
-WoMakersCode - Mais Mulheres Tech: Oferece cursos como "Como Conseguir um Emprego", "Liderança Feminina e Soft Skills", e "Design Thinking", focados em empregabilidade e desenvolvimento pessoal no setor de tecnologia. (Disponível aqui)
+WoMakersCode - Mais Mulheres Tech: Oferece cursos como "Como Conseguir um Emprego", "Liderança Feminina e Soft Skills", e "Design Thinking", focados em empregabilidade e desenvolvimento pessoal no setor de tecnologia. 
+his site was built using [Disponível aqui](https://www.maismulheres.tech/).
 
 SENAI - Mulheres na Indústria: Abre cursos EAD gratuitos de tecnologia, alguns dos quais podem abordar aspectos de carreira e desenvolvimento profissional. (Fique atenta às novas edições em: https://conteudo.senaies.com.br/mulheresnaindustria)
 
