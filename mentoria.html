@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentoria em Tecnologia para Mulheres</title>
+    <!-- Inclui o Tailwind CSS para estilização moderna e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Define a fonte Inter como padrão para todo o corpo do documento */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Cor de fundo suave */
+        }
+        /* Estilos para o contêiner de cada slide */
+        .slide-container {
+            min-height: 100vh; /* Cada slide ocupa a altura total da viewport */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background-color: #ffffff; /* Fundo branco para os slides */
+            border-radius: 1.5rem; /* Cantos arredondados */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Sombra suave */
+            text-align: center;
+            transition: all 0.3s ease-in-out; /* Transição suave para mudanças de estilo */
+        }
+        /* Estilos para títulos de slide */
+        .slide-title {
+            font-size: 2.5rem; /* Tamanho da fonte grande para títulos */
+            font-weight: 700; /* Negrito */
+            color: #1a202c; /* Cor escura para o texto */
+            margin-bottom: 1rem;
+        }
+        /* Estilos para subtítulos */
+        .slide-subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+        }
+        /* Estilos para listas de tópicos */
+        .slide-list {
+            list-style: none; /* Remove marcadores de lista padrão */
+            padding: 0;
+            margin: 1rem 0;
+            text-align: left; /* Alinha o texto da lista à esquerda */
+        }
+        .slide-list li {
+            font-size: 1.1rem;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        .slide-list li::before {
+            content: '•'; /* Adiciona um marcador de lista personalizado */
+            color: #667eea; /* Cor do marcador */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            margin-right: 0.5em;
+        }
+        /* Estilos para links de cursos */
+        .course-link {
+            color: #4299e1; /* Cor azul para links */
+            text-decoration: none; /* Remove sublinhado padrão */
+            font-weight: 600;
+            transition: color 0.2s ease-in-out;
+        }
+        .course-link:hover {
+            color: #2b6cb0; /* Cor mais escura ao passar o mouse */
+            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+        }
+        /* Estilos para o rodapé/informações de contato */
+        .footer-text {
+            font-size: 1rem;
+            color: #718096;
+            margin-top: 1rem;
+        }
+        /* Estilos para os botões de navegação (se fossem usados) */
+        .nav-button {
+            background-color: #667eea;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px; /* Botão arredondado */
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            border: none;
+            margin: 0 0.5rem;
+        }
+        .nav-button:hover {
+            background-color: #5a67d8;
+        }
+        /* Estilo para a imagem de fundo em alguns slides (exemplo) */
+        .bg-image-career {
+            background-image: url('https://placehold.co/1200x600/667eea/ffffff?text=Carreira+em+Tecnologia'); /* Placeholder de imagem */
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .bg-image-frontend {
+            background-image: url('https://placehold.co/1200x600/4299e1/ffffff?text=Desenvolvimento+Frontend');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .bg-image-backend {
+            background-image: url('https://placehold.co/1200x600/f6ad55/ffffff?text=Desenvolvimento+Backend');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .bg-image-qa {
+            background-image: url('https://placehold.co/1200x600/48bb78/ffffff?text=Qualidade+de+Software');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .bg-image-data-bi {
+            background-image: url('https://placehold.co/1200x600/ed8936/ffffff?text=Análise+de+Dados+e+BI');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .bg-image-agility {
+            background-image: url('https://placehold.co/1200x600/9f7aea/ffffff?text=Agilidade+e+Métodos+Ágeis');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .slide-title {
+                font-size: 1.8rem;
+            }
+            .slide-subtitle {
+                font-size: 1.2rem;
+            }
+            .slide-list li {
+                font-size: 1rem;
+            }
+            .slide-container {
+                padding: 1rem;
+            }
+        }
+
+        /* Estilos para os novos elementos de interação com LLM */
+        .llm-section {
+            background-color: #f8f8f8;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border: 1px solid #e2e8f0;
+            width: 100%;
+            max-width: 600px;
+            text-align: left;
+        }
+        .llm-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            resize: vertical; /* Permite redimensionamento vertical */
+            min-height: 80px;
+        }
+        .llm-button {
+            background-color: #8b5cf6; /* Cor roxa vibrante */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .llm-button:hover {
+            background-color: #7c3aed;
+        }
+        .llm-output {
+            background-color: #edf2f7;
+            border: 1px dashed #a0aec0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            min-height: 100px;
+            overflow-y: auto;
+            max-height: 300px;
+            color: #2d3748;
+            white-space: pre-wrap; /* Preserva quebras de linha e espaços */
+        }
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #8b5cf6;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="p-4">
+    <!-- Contêiner principal para todos os slides -->
+    <div class="max-w-4xl mx-auto">
+
+        <!-- Slide 1: Título da Apresentação -->
+        <div id="slide-1" class="slide-container">
+            <h1 class="slide-title text-purple-700">Mentoria em Tecnologia: Desafie-se e Cresça!</h1>
+            <h2 class="slide-subtitle text-gray-700">Seu Caminho no Mundo Tech</h2>
+            <p class="text-lg text-gray-600 mt-4">**Mentora:** [Seu Nome Completo]</p>
+            <p class="text-lg text-gray-600">**Evento/Organização:** [Nome do Evento ou Organização]</p>
+            <div class="mt-8">
+                <!-- Ícone ou imagem de destaque para o título -->
+                <svg class="w-24 h-24 text-purple-500 mx-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-11a1 1 0 10-2 0v4a1 1 0 102 0V7zm3 1a1 1 0 10-2 0v3a1 1 0 102 0V8z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Slide 2: Boas-Vindas e Propósito da Mentoria -->
+        <div id="slide-2" class="slide-container">
+            <h1 class="slide-title text-blue-700">Olá, Futuras Líderes Tech!</h1>
+            <p class="text-xl text-gray-700 mb-4">É um prazer ter você aqui!</p>
+            <p class="text-lg text-gray-600 mb-4">Meu objetivo é te apoiar e guiar na sua jornada profissional em tecnologia.</p>
+            <p class="text-lg text-gray-600 mb-8">Estou aqui para ouvir, compartilhar experiências, dar dicas e te ajudar a encontrar os melhores caminhos.</p>
+            <h3 class="slide-subtitle text-gray-800">Perguntas para Reflexão:</h3>
+            <ul class="slide-list mx-auto max-w-md">
+                <li>Qual o seu principal foco para esta sessão?</li>
+                <li>O que você busca com esta mentoria?</li>
+                <li>Quais são seus maiores desafios no momento?</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3: Nossas Áreas de Foco -->
+        <div id="slide-3" class="slide-container">
+            <h1 class="slide-title text-green-700">Por Onde Vamos Começar?</h1>
+            <ul class="slide-list mx-auto max-w-md mt-8">
+                <li><span class="font-bold text-green-600">Carreira em Tecnologia</span></li>
+                <li><span class="font-bold text-green-600">Desenvolvimento Frontend</span></li>
+                <li><span class="font-bold text-green-600">Desenvolvimento Backend</span></li>
+                <li><span class="font-bold text-green-600">Qualidade de Software (QA)</span></li>
+                <li><span class="font-bold text-green-600">Análise de Dados e Business Intelligence (BI)</span></li>
+                <li><span class="font-bold text-green-600">Agilidade e Métodos Ágeis</span></li>
+            </ul>
+            <div class="mt-8 flex justify-center space-x-4">
+                <!-- Ícones representativos para cada área -->
+                <svg class="w-12 h-12 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg> <!-- Carreira -->
+                <svg class="w-12 h-12 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zm-6 9a3 3 0 11-6 0 3 3 0 016 0zm10 0a3 3 0 11-6 0 3 3 0 016 0z"></path></svg> <!-- Frontend -->
+                <svg class="w-12 h-12 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM13 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2h-2zM13 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2h-2z"></path></svg> <!-- Backend -->
+                <svg class="w-12 h-12 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg> <!-- QA -->
+                <svg class="w-12 h-12 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path></svg> <!-- Dados/BI -->
+                <svg class="w-12 h-12 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd"></path></svg> <!-- Agilidade -->
+            </div>
+        </div>
+
+        <!-- Slide 4: Carreira em Tecnologia -->
+        <div id="slide-4" class="slide-container bg-image-career text-white">
+            <h1 class="slide-title">Carreira em Tecnologia: Construindo Sua Trajetória Profissional</h1>
+            <h3 class="slide-subtitle">Tópicos para Mentoria:</h3>
+            <ul class="slide-list mx-auto max-w-xl text-white">
+                <li>Desenvolvimento e transição de carreira</li>
+                <li>Networking e marca pessoal</li>
+                <li>Equilíbrio vida pessoal/profissional</li>
+                <li>Comunicação e liderança</li>
+            </ul>
+            <h3 class="slide-subtitle mt-8">Cursos Gratuitos Sugeridos:</h3>
+            <ul class="slide-list mx-auto max-w-xl text-white">
+                <li>**WoMakersCode - Mais Mulheres Tech:** Cursos como "Como Conseguir um Emprego", "Liderança Feminina e Soft Skills". <a href="https://www.maismulheres.tech/" target="_blank" class="course-link text-blue-300 hover:text-blue-100">Link</a></li>
+                <li>**SENAI - Mulheres na Indústria:** Cursos EAD de tecnologia (fique atenta às novas edições). <a href="https://conteudo.senaies.com.br/mulheresnaindustria" target="_blank" class="course-link text-blue-300 hover:text-blue-100">Link</a></li>
+                <li>**Cisco - Women Rock IT:** Programas profissionalizantes que incentivam mulheres em STEM. (Pesquise por: "Cisco Women Rock IT")</li>
+            </ul>
+
+            <!-- Seção de interatividade com LLM para Carreira -->
+            <div class="llm-section bg-white text-gray-800">
+                <h3 class="text-xl font-bold mb-4">✨ Sugestão de Próximos Passos na Carreira</h3>
+                <p class="mb-2">Descreva sua situação atual e seu objetivo de carreira:</p>
+                <textarea id="careerInput" class="llm-textarea" placeholder="Ex: Sou desenvolvedora júnior e quero me tornar líder técnica em 2 anos."></textarea>
+                <button class="llm-button" onclick="getCareerSuggestion()">Obter Sugestão ✨ <span id="careerSpinner" class="loading-spinner hidden"></span></button>
+                <div id="careerOutput" class="llm-output mt-4"></div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Desenvolvimento Frontend -->
+        <div id="slide-5" class="slide-container bg-image-frontend text-white">
+            <h1 class="slide-title">Desenvolvimento Frontend: Dando Vida à Web</h1>
+            <h3 class="slide-subtitle">Tópicos para Mentoria:</h3>
+            <ul class="slide-list mx-auto max-w-xl text-white">
+                <li>Tecnologias e frameworks (React, Angular, Vue, etc.)</li>
+                <li>Melhores práticas de código</li>
+                <li>Experiência do Usuário (UX) e Design de Interface (UI)</li>
+            </ul>
+            <h3 class="slide-subtitle mt-8">Cursos Gratuitos Sugeridos:</h3>
+            <ul class="slide-list mx-auto max-w-xl text-white">
+                <li>**Udemy (cursos gratuitos):** Busque por "desenvolvimento web de front-end" (HTML, CSS, JavaScript, React JS, Vue JS). (Pesquise por: "Udemy cursos gratuitos front-end")</li>
+                <li>**Microsoft Learn:** "Aprenda o desenvolvimento de front-end para a web com o ASP.NET Core" (inclui Blazor). <a href="https://dotnet.microsoft.com/pt-br/learn/front-end-web-dev" target="_blank" class="course-link text-blue-300 hover:text-blue-100">Link</a></li>
+                <li>**The Odin Project:** Currículo completo com recursos e projetos práticos. <a href="https://www.theodinproject.com/" target="_blank" class="course-link text-blue-300 hover:text-blue-100">Link</a></li>
+            </ul>
+
+            <!-- Seção de interatividade com LLM para Frontend -->
+            <div class="llm-section bg-white text-gray-800">
+                <h3 class="text-xl font-bold mb-4">✨ Explique um Conceito Frontend</h3>
+                <p class="mb-2">Qual conceito de frontend você gostaria que eu explicasse?</p>
+                <textarea id="frontendConceptInput" class="llm-textarea" placeholder="Ex: O que é Virtual DOM?"></textarea>
+                <button class="llm-button" onclick="explainFrontendConcept()">Explicar Conceito ✨ <span id="frontendSpinner" class="loading-spinner hidden"></span></button>
+                <div id="frontendConceptOutput" class="llm-output mt-4"></div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Desenvolvimento Backend -->
+        <div id="slide-6" class="slide-container bg-image-backend text-white">
+            <h1 class="slide-title">Desenvolvimento Backend: A Engrenagem por Trás da Aplicação</h1>
+            <h3 class="slide-subtitle">Tópicos para Mentoria:</h3>
+            <ul class="slide-list mx-auto max-w-xl text-white">
+                <li>Linguagens e frameworks (Python, Node.js, Java, .NET, etc.)</li>
+                <li>Arquitetura de sistemas e bancos de dados</li>
+                <li>APIs, integrações, segurança e escalabilidade</li>
+            </ul>
+            <h3 class="slide-subtitle mt-8">Cursos Gratuitos Sugeridos:</h3>
+            <ul class="slide-list mx-auto max-w-xl text-white">
+                <li>**Tim Tec:** Desenvolvimento backend, banco de dados e desenvolvimento de APIs. <a href="https://timtec.com.br/" target="_blank" class="course-link text-blue-300 hover:text-blue-100">Link</a></li>
+                <li>**Microsoft Learn:** "Aprenda sobre desenvolvimento de back-end para a Web com o ASP.NET Core". <a href="https://dotnet.microsoft.com/pt-br/learn/back-end-web-dev" target="_blank" class="course-link text-blue-300 hover:text-blue-100">Link</a></li>
+                <li>**Cursa.app:** "Criando APIs com NodeJs" (Node, NPM, MongoDB e autenticação). <a href="https://cursa.app/curso-desenvolvimento-back-end-online-e-gratuito" target="_blank" class="course-link text-blue-300 hover:text-blue-100">Link</a></li>
+            </ul>
+
+            <!-- Seção de interatividade com LLM para Backend -->
+            <div class="llm-section bg-white text-gray-800">
+                <h3 class="text-xl font-bold mb-4">✨ Explique um Conceito Backend</h3>
+                <p class="mb-2">Qual conceito de backend você gostaria que eu explicasse?</p>
+                <textarea id="backendConceptInput" class="llm-textarea" placeholder="Ex: O que é RESTful API?"></textarea>
+                <button class="llm-button" onclick="explainBackendConcept()">Explicar Conceito ✨ <span id="backendSpinner" class="loading-spinner hidden"></span></button>
+                <div id="backendConceptOutput" class="llm-output mt-4"></div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Qualidade de Software (QA) -->
+        <div id="slide-7" class="slide-container bg-image-qa text-white">
+            <h1 class="slide-title">Qualidade de Software (QA): Garantindo Excelência no Código</h1>
+            <h3 class="slide-subtitle">Tópicos para Mentoria:</h3>
+            <ul class="slide-list mx-auto max-w-xl text-white">
+                <li>Tipos de testes (manuais, automatizados, performance, etc.)</li>
+                <li>Ferramentas e processos de QA</li>
+                <li>Garantia da qualidade em projetos</li>
+            </ul>
+            <h3 class="slide-subtitle mt-8">Cursos Gratuitos Sugeridos:</h3>
+            <ul class="slide-list mx-auto max-w-xl text-white">
+                <li>**EBAC Online:** "Curso de Teste de Software online". <a href="https://ebaconline.com.br/qualidade-de-software" target="_blank" class="course-link text-blue-300 hover:text-blue-100">Link</a></li>
+                <li>**PUC-Rio Digital (Cursos Livres):** Fique de olho em módulos gratuitos sobre "Teste e Qualidade de Software". (Pesquise por: "PUC-Rio Digital cursos livres qualidade software")</li>
+            </ul>
+        </div>
+
+        <!-- Slide 8: Análise de Dados e Business Intelligence (BI) -->
+        <div id="slide-8" class="slide-container bg-image-data-bi text-white">
+            <h1 class="slide-title">Análise de Dados e Business Intelligence (BI): Transformando Dados em Decisões</h1>
+            <h3 class="slide-subtitle">Tópicos para Mentoria:</h3>
+            <ul class="slide-list mx-auto max-w-xl text-white">
+                <li>Coleta, limpeza e transformação de dados</li>
+                <li>Ferramentas de análise (Python, R, SQL)</li>
+                <li>Visualização de dados (Power BI, Tableau, Looker Studio)</li>
+                <li>Tomada de decisão baseada em dados</li>
+                <li>Construção de dashboards e relatórios</li>
+            </ul>
+            <h3 class="slide-subtitle mt-8">Cursos Gratuitos Sugeridos:</h3>
+            <ul class="slide-list mx-auto max-w-xl text-white">
+                <li>**Escola Virtual Gov (EV.G):** "Análise de dados como suporte à tomada de decisão", "Análise de Dados em Linguagem R". <a href="https://www.escolavirtual.gov.br/" target="_blank" class="course-link text-blue-300 hover:text-blue-100">Link</a></li>
+                <li>**Data Science Academy (DSA):** Cursos gratuitos em Data Science, Engenharia de Dados, Python para Análise de Dados, Power BI. <a href="https://www.datascienceacademy.com.br/cursosgratuitos" target="_blank" class="course-link text-blue-300 hover:text-blue-100">Link</a></li>
+                <li>**FGV Educação Executiva:** "Aspectos Introdutórios de Business Intelligence". <a href="https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/aspectos-introductorios-de-business-intelligence" target="_blank" class="course-link text-blue-300 hover:text-blue-100">Link</a></li>
+            </ul>
+        </div>
+
+        <!-- Slide 9: Agilidade e Métodos Ágeis -->
+        <div id="slide-9" class="slide-container bg-image-agility text-white">
+            <h1 class="slide-title">Agilidade e Métodos Ágeis: Inovando com Flexibilidade e Eficiência</h1>
+            <h3 class="slide-subtitle">Tópicos para Mentoria:</h3>
+            <ul class="slide-list mx-auto max-w-xl text-white">
+                <li>Scrum, Kanban, Lean</li>
+                <li>Papéis e responsabilidades em times ágeis</li>
+                <li>Cerimônias e artefatos ágeis</li>
+                <li>Aplicação da agilidade no dia a dia</li>
+            </ul>
+            <h3 class="slide-subtitle mt-8">Cursos Gratuitos Sugeridos:</h3>
+            <ul class="slide-list mx-auto max-w-xl text-white">
+                <li>**Sebrae:** "Soluções Ágeis". <a href="https://sebrae.com.br/sites/PortalSebrae/cursosonline/solucoes-ageis" target="_blank" class="course-link text-blue-300 hover:text-blue-100">Link</a></li>
+                <li>**Senac (Orango):** "Gestão ágil de projetos com Scrum e Kanban" (com certificação Senac). <a href="https://orango.senac.br/inicio/cursos/gestao-agil-de-projetos-com-scrum-e-kanban/" target="_blank" class="course-link text-blue-300 hover:text-blue-100">Link</a></li>
+                <li>**Elevo Cursos:** "Curso Grátis de Scrum com Certificado". <a href="https://elevocursos.com.br/cursos/de/administracao/scrum/gratis" target="_blank" class="course-link text-blue-300 hover:text-blue-100">Link</a></li>
+            </ul>
+
+            <!-- Seção de interatividade com LLM para Agilidade -->
+            <div class="llm-section bg-white text-gray-800">
+                <h3 class="text-xl font-bold mb-4">✨ Solução para Desafios Ágeis</h3>
+                <p class="mb-2">Descreva um desafio que você enfrenta em um ambiente ágil:</p>
+                <textarea id="agileChallengeInput" class="llm-textarea" placeholder="Ex: Meu time está com dificuldade em estimar tarefas no Scrum."></textarea>
+                <button class="llm-button" onclick="getAgileSolution()">Obter Solução ✨ <span id="agileSpinner" class="loading-spinner hidden"></span></button>
+                <div id="agileSolutionOutput" class="llm-output mt-4"></div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Como Posso Te Ajudar (Seu Papel como Mentora) -->
+        <div id="slide-10" class="slide-container">
+            <h1 class="slide-title text-orange-700">Como Posso Te Ajudar: Minha Contribuição na Sua Jornada</h1>
+            <h3 class="slide-subtitle text-gray-800">Pontos Principais:</h3>
+            <ul class="slide-list mx-auto max-w-md">
+                <li><span class="font-bold">Indicar:</span> Recursos, cursos, livros, comunidades.</li>
+                <li><span class="font-bold">Compartilhar minha experiência:</span> Histórias e aprendizados reais.</li>
+                <li><span class="font-bold">Ajudar a solucionar problemas:</span> Perguntas, brainstorms, desmistificação.</li>
+                <li><span class="font-bold">Dar dicas práticas:</span> Conselhos acionáveis para o seu dia a dia.</li>
+            </ul>
+            <div class="mt-8">
+                <!-- Ícone de ajuda ou mentoria -->
+                <svg class="w-20 h-20 text-orange-500 mx-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.732-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1.172A4 4 0 009 5a4 4 0 00-1-3z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Slide 11: Próximos Passos e Acompanhamento -->
+        <div id="slide-11" class="slide-container">
+            <h1 class="slide-title text-teal-700">Próximos Passos e Acompanhamento: Seu Plano de Ação!</h1>
+            <p class="text-xl text-gray-700 mb-4">"Vamos recapitular os principais pontos discutidos?"</p>
+            <h3 class="slide-subtitle text-gray-800">Ações a serem tomadas:</h3>
+            <p class="text-lg text-gray-600 mb-8">"Quais são os 1-3 próximos passos concretos que você vai seguir?"</p>
+            <p class="text-lg text-gray-600 mb-8">"Estou disponível para dúvidas futuras!"</p>
+            <h3 class="slide-subtitle text-gray-800">Agradecimento e Contato:</h3>
+            <p class="text-lg text-gray-700">"Obrigada por confiar em mim para esta mentoria!"</p>
+            <p class="footer-text">**E-mail:** [Seu E-mail]</p>
+            <p class="footer-text">**LinkedIn:** [Seu LinkedIn]</p>
+            <p class="footer-text">**Outras redes sociais:** [Se desejar]</p>
+        </div>
+
+        <!-- Slide 12: Perguntas e Encerramento -->
+        <div id="slide-12" class="slide-container">
+            <h1 class="slide-title text-red-700">Dúvidas? Vamos Conversar!</h1>
+            <div class="mt-8">
+                <!-- Ícone de balão de fala -->
+                <svg class="w-20 h-20 text-red-500 mx-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.336-4.933a8.964 8.964 0 01-2.35-4.067C.582 6.134 4.164 3 8 3s8 3.134 8 7z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <p class="text-xl text-gray-700 mt-8">"Lembre-se: A tecnologia precisa do seu talento! Acredite no seu potencial."</p>
+        </div>
+
+    </div>
+
+    <script>
+        // Função genérica para chamar a API Gemini
+        async function callGeminiAPI(prompt, outputElementId, spinnerElementId) {
+            const outputElement = document.getElementById(outputElementId);
+            const spinnerElement = document.getElementById(spinnerElementId);
+
+            outputElement.innerHTML = ''; // Limpa o output anterior
+            spinnerElement.classList.remove('hidden'); // Mostra o spinner
+
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // A API Key será fornecida pelo ambiente Canvas em tempo de execução
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    outputElement.innerText = text; // Exibe a resposta do LLM
+                } else {
+                    outputElement.innerText = 'Erro: Não foi possível obter uma resposta. Tente novamente.';
+                    console.error('Estrutura de resposta inesperada:', result);
+                }
+            } catch (error) {
+                outputElement.innerText = 'Erro ao conectar com a API. Verifique sua conexão ou tente mais tarde.';
+                console.error('Erro na chamada da API Gemini:', error);
+            } finally {
+                spinnerElement.classList.add('hidden'); // Esconde o spinner
+            }
+        }
+
+        // Função para obter sugestão de carreira (Slide 4)
+        async function getCareerSuggestion() {
+            const careerInput = document.getElementById('careerInput').value;
+            if (!careerInput.trim()) {
+                document.getElementById('careerOutput').innerText = 'Por favor, descreva sua situação e objetivo de carreira.';
+                return;
+            }
+            const prompt = `Como mentora de tecnologia, com base na seguinte situação de carreira e objetivo, sugira 3-5 próximos passos concretos e habilidades a serem desenvolvidas para uma mulher em tecnologia. Seja concisa e direta: "${careerInput}"`;
+            await callGeminiAPI(prompt, 'careerOutput', 'careerSpinner');
+        }
+
+        // Função para explicar conceito Frontend (Slide 5)
+        async function explainFrontendConcept() {
+            const conceptInput = document.getElementById('frontendConceptInput').value;
+            if (!conceptInput.trim()) {
+                document.getElementById('frontendConceptOutput').innerText = 'Por favor, digite um conceito para explicar.';
+                return;
+            }
+            const prompt = `Explique o seguinte conceito de desenvolvimento frontend de forma clara e concisa para uma iniciante em tecnologia, usando exemplos se possível: "${conceptInput}"`;
+            await callGeminiAPI(prompt, 'frontendConceptOutput', 'frontendSpinner');
+        }
+
+        // Função para explicar conceito Backend (Slide 6)
+        async function explainBackendConcept() {
+            const conceptInput = document.getElementById('backendConceptInput').value;
+            if (!conceptInput.trim()) {
+                document.getElementById('backendConceptOutput').innerText = 'Por favor, digite um conceito para explicar.';
+                return;
+            }
+            const prompt = `Explique o seguinte conceito de desenvolvimento backend de forma clara e concisa para uma iniciante em tecnologia, usando exemplos se possível: "${conceptInput}"`;
+            await callGeminiAPI(prompt, 'backendConceptOutput', 'backendSpinner');
+        }
+
+        // Função para obter solução para desafios ágeis (Slide 9)
+        async function getAgileSolution() {
+            const challengeInput = document.getElementById('agileChallengeInput').value;
+            if (!challengeInput.trim()) {
+                document.getElementById('agileSolutionOutput').innerText = 'Por favor, descreva o desafio ágil.';
+                return;
+            }
+            const prompt = `Como mentora de agilidade, com base no seguinte desafio em um ambiente ágil, sugira 3-5 possíveis soluções ou melhores práticas. Seja concisa e direta: "${challengeInput}"`;
+            await callGeminiAPI(prompt, 'agileSolutionOutput', 'agileSpinner');
+        }
+    </script>
+</body>
+</html>
