@@ -48,9 +48,9 @@ Dicas de Cursos Gratuitos para Frontend:
 
 Udemy (cursos gratuitos): Pesquise por "desenvolvimento web de front-end" para encontrar cursos introdutórios de HTML, CSS, JavaScript, React JS, Vue JS, entre outros. Muitos instrutores oferecem cursos gratuitos para iniciantes.
 
-Microsoft Learn: Oferece cursos gratuitos como "Aprenda o desenvolvimento de front-end para a web com o ASP.NET Core", que inclui tópicos como Blazor. (Disponível aqui)
+Microsoft Learn: Oferece cursos gratuitos como "Aprenda o desenvolvimento de front-end para a web com o ASP.NET Core", que inclui tópicos como Blazor. [Disponível aqui](https://dotnet.microsoft.com/pt-br/learn/front-end-web-dev)
 
-The Odin Project: Embora seja um currículo completo, oferece muitos recursos e projetos práticos gratuitos para aprender desenvolvimento web, incluindo frontend. (Disponível aqui)
+The Odin Project: Embora seja um currículo completo, oferece muitos recursos e projetos práticos gratuitos para aprender desenvolvimento web, incluindo frontend. [Disponível aqui](https://www.theodinproject.com/)
 
 ## ⚙️ Desenvolvimento Backend
 Linguagens e frameworks (Python, Node.js, Java, .NET, etc.)
@@ -65,11 +65,11 @@ Segurança e escalabilidade
 
 Dicas de Cursos Gratuitos para Backend:
 
-Tim Tec: Plataforma que oferece cursos gratuitos em diversas áreas de TI, incluindo backend, banco de dados e desenvolvimento de APIs. (Disponível aqui)
+Tim Tec: Plataforma que oferece cursos gratuitos em diversas áreas de TI, incluindo backend, banco de dados e desenvolvimento de APIs. [Disponível aqui](https://timtec.com.br/)
 
-Microsoft Learn: Oferece cursos gratuitos como "Aprenda sobre desenvolvimento de back-end para a Web com o ASP.NET Core", abordando APIs mínimas. (Disponível aqui)
+Microsoft Learn: Oferece cursos gratuitos como "Aprenda sobre desenvolvimento de back-end para a Web com o ASP.NET Core", abordando APIs mínimas. [Disponível aqui](https://dotnet.microsoft.com/pt-br/learn/back-end-web-dev)
 
-Cursa.app: Oferece cursos online 100% gratuitos com certificado, incluindo "Criando APIs com NodeJs", que aborda Node, NPM, MongoDB e autenticação. (Disponível aqui)
+Cursa.app: Oferece cursos online 100% gratuitos com certificado, incluindo "Criando APIs com NodeJs", que aborda Node, NPM, MongoDB e autenticação. [Disponível aqui](https://cursa.app/curso-desenvolvimento-back-end-online-e-gratuito)
 
 ## 🔍 Qualidade de Software (QA)
 Testes (manuais, automatizados, de performance, etc.)
@@ -82,7 +82,7 @@ Garantia da qualidade em projetos
 
 Dicas de Cursos Gratuitos para Qualidade de Software:
 
-EBAC Online: Oferece um "Curso de Teste de Software online" que aborda princípios, tipos e técnicas de testes, bugs, falhas, erros, metodologias ágeis em testes, testes de API e automação. (Disponível aqui)
+EBAC Online: Oferece um "Curso de Teste de Software online" que aborda princípios, tipos e técnicas de testes, bugs, falhas, erros, metodologias ágeis em testes, testes de API e automação. [Disponível aqui](https://ebaconline.com.br/qualidade-de-software)
 
 PUC-Rio Digital (Cursos Livres): Embora alguns sejam pagos, a PUC-Rio oferece cursos livres que podem ter módulos ou introduções gratuitas sobre "Teste e Qualidade de Software", abordando processos e técnicas de teste. (Verifique a disponibilidade de cursos abertos em: https://especializacao.ccec.puc-rio.br/cursos-livres/teste-qualidade-software)
 
@@ -99,11 +99,11 @@ Construção de dashboards e relatórios
 
 Dicas de Cursos Gratuitos para Análise de Dados e BI:
 
-Escola Virtual Gov (EV.G): Oferece cursos como "Análise de dados como suporte à tomada de decisão" e "Análise de Dados em Linguagem R", ambos gratuitos e com certificado. (Disponível aqui)
+Escola Virtual Gov (EV.G): Oferece cursos como "Análise de dados como suporte à tomada de decisão" e "Análise de Dados em Linguagem R", ambos gratuitos e com certificado. [Disponível aqui](https://www.escolavirtual.gov.br/)
 
-Data Science Academy (DSA): Possui uma seção de cursos gratuitos, incluindo "Fundamentos de Data Science e Inteligência Artificial", "Fundamentos de Engenharia de Dados" e "Fundamentos de Linguagem Python Para Análise de Dados e Data Science", e "Microsoft Power BI Para Business Intelligence e Data Science". (Disponível aqui)
+Data Science Academy (DSA): Possui uma seção de cursos gratuitos, incluindo "Fundamentos de Data Science e Inteligência Artificial", "Fundamentos de Engenharia de Dados" e "Fundamentos de Linguagem Python Para Análise de Dados e Data Science", e "Microsoft Power BI Para Business Intelligence e Data Science". [Disponível aqui](https://www.datascienceacademy.com.br/cursosgratuitos)
 
-FGV Educação Executiva: Oferece cursos online gratuitos como "Aspectos Introdutórios de Business Intelligence", que aborda conceitos de BI, modelagem dimensional e data warehouse. (Disponível aqui)
+FGV Educação Executiva: Oferece cursos online gratuitos como "Aspectos Introdutórios de Business Intelligence", que aborda conceitos de BI, modelagem dimensional e data warehouse. [Disponível aqui](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/aspectos-introdutorios-de-business-intelligence)
 
 ## ⚡ Agilidade e Métodos Ágeis
 Scrum, Kanban, Lean
@@ -116,11 +116,11 @@ Como aplicar agilidade no dia a dia
 
 Dicas de Cursos Gratuitos para Agilidade:
 
-Sebrae: Oferece o curso online gratuito "Soluções Ágeis", que aborda metodologias ágeis para negócios. (Disponível aqui)
+Sebrae: Oferece o curso online gratuito "Soluções Ágeis", que aborda metodologias ágeis para negócios. [Disponível aqui](https://sebrae.com.br/sites/PortalSebrae/cursosonline/solucoes-ageis)
 
-Senac (Orango): Possui o curso gratuito "Gestão ágil de projetos com Scrum e Kanban", com certificação Senac. (Disponível aqui)
+Senac (Orango): Possui o curso gratuito "Gestão ágil de projetos com Scrum e Kanban", com certificação Senac. [Disponível aqui](https://orango.senac.br/inicio/cursos/gestao-agil-de-projetos-com-scrum-e-kanban/)
 
-Elevo Cursos: Oferece um "Curso Grátis de Scrum com Certificado", que cobre os principais conceitos de Scrum, papéis, cerimônias e artefatos. (Disponível aqui)
+Elevo Cursos: Oferece um "Curso Grátis de Scrum com Certificado", que cobre os principais conceitos de Scrum, papéis, cerimônias e artefatos. [Disponível aqui](https://elevocursos.com.br/cursos/de/administracao/scrum/gratis)
 
 ## ✅ Exploração e Ações (Seu Papel como Mentora)
 Nesta seção, com base no que a mentorada compartilhou, você pode:
