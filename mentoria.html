@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentoria para Mulheres em Tecnologia</title>
+    
+    <!-- Chosen Palette: Warm Neutrals (Slate) with a Teal accent -->
+    <!-- Application Structure Plan: A single-page application with a sticky top navigation bar for easy access to different sections. The main content is structured into logical parts: an introduction, a data visualization chart for context, and detailed sections for each mentorship area ("Trilhas de Conhecimento"). This structure was chosen over a simple linear document to provide a more engaging, dashboard-like experience, allowing the mentor and mentee to jump to relevant sections easily, facilitating a non-linear and flexible conversation flow. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: List of 6 tech areas. Goal: Provide context on career relevance. Viz/Method: Bar Chart (Chart.js/Canvas). Interaction: Static visualization with tooltips on hover. Justification: A bar chart is excellent for comparing discrete categories (the tech areas) and quickly conveying relative demand, adding a data-driven element to the mentorship guide. Library: Chart.js.
+        - Report Info: Topics and course suggestions for each area. Goal: Organize and present detailed information clearly. Viz/Method: Styled cards and lists (HTML/Tailwind). Interaction: Clickable links to external course resources. Justification: Cards create visual separation and focus for each area, while lists are ideal for scannable topics and resources, improving readability. Library: None (HTML/CSS).
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9; /* slate-100 */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Header and Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-bold text-teal-600">Mentoria Tech 🚀</h1>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#inicio" class="text-slate-600 hover:text-teal-600 font-medium transition-colors">Início</a>
+                <a href="#demanda" class="text-slate-600 hover:text-teal-600 font-medium transition-colors">Mercado</a>
+                <a href="#trilhas" class="text-slate-600 hover:text-teal-600 font-medium transition-colors">Trilhas</a>
+                <a href="#guia" class="text-slate-600 hover:text-teal-600 font-medium transition-colors">Guia da Mentora</a>
+            </div>
+            <div class="md:hidden">
+                <select onchange="window.location.href=this.value" class="bg-slate-200 border border-slate-300 text-slate-700 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5">
+                    <option value="#inicio">Menu</option>
+                    <option value="#inicio">Início</option>
+                    <option value="#demanda">Mercado</option>
+                    <option value="#trilhas">Trilhas</option>
+                    <option value="#guia">Guia da Mentora</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 md:py-12">
+
+        <!-- Section: Inicio -->
+        <section id="inicio" class="text-center py-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">✨ Bem-vinda à sua Jornada em Tecnologia ✨</h2>
+            <p class="max-w-3xl mx-auto text-lg text-slate-600">
+                Olá, [Nome da Mentorada]! Meu objetivo é te apoiar e guiar na sua carreira. Este espaço é nosso para explorar seus objetivos, desafios e os próximos passos para o seu sucesso. Sinta-se à vontade para compartilhar o que precisar.
+            </p>
+        </section>
+
+        <!-- Section: Demanda de Mercado -->
+        <section id="demanda" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Visão do Mercado de Tecnologia</h2>
+                <p class="mt-4 text-lg text-slate-600">Para te ajudar a ter um panorama, veja um gráfico com a demanda de mercado para diferentes áreas.</p>
+            </div>
+            <div class="bg-white p-4 sm:p-8 rounded-2xl shadow-lg">
+                <div class="chart-container">
+                    <canvas id="marketDemandChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Trilhas de Conhecimento -->
+        <section id="trilhas" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900">🎯 Trilhas de Conhecimento</h2>
+                <p class="mt-4 text-lg text-slate-600">Vamos explorar as áreas que mais te interessam ou onde você busca mais apoio.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Card: Carreira -->
+                <div id="carreira" class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center"><span class="text-3xl mr-3">💼</span> Carreira em Tecnologia</h3>
+                    <h4 class="font-bold text-lg mb-2 text-slate-700">Tópicos para discussão:</h4>
+                    <ul class="list-disc list-inside space-y-2 mb-6 text-slate-600">
+                        <li>Desenvolvimento profissional (trajetória, promoções)</li>
+                        <li>Networking e marca pessoal</li>
+                        <li>Equilíbrio entre vida pessoal e profissional</li>
+                        <li>Comunicação e liderança</li>
+                    </ul>
+                    <h4 class="font-bold text-lg mb-2 text-slate-700">Cursos Gratuitos Sugeridos:</h4>
+                    <ul class="space-y-3">
+                        <li><a href="https://www.maismulheres.tech/" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">WoMakersCode - Liderança e Soft Skills</a></li>
+                        <li><a href="https://conteudo.senaies.com.br/mulheresnaindustria" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">SENAI - Mulheres na Indústria</a></li>
+                        <li><a href="https://www.google.com/search?q=Cisco+Women+Rock+IT" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">Cisco - Women Rock IT</a></li>
+                    </ul>
+                </div>
+
+                <!-- Card: Frontend -->
+                <div id="frontend" class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center"><span class="text-3xl mr-3">💻</span> Desenvolvimento Frontend</h3>
+                    <h4 class="font-bold text-lg mb-2 text-slate-700">Tópicos para discussão:</h4>
+                    <ul class="list-disc list-inside space-y-2 mb-6 text-slate-600">
+                        <li>Tecnologias e frameworks (React, Angular, Vue.js)</li>
+                        <li>Melhores práticas de código e performance</li>
+                        <li>Experiência do usuário (UX) e design de interface (UI)</li>
+                    </ul>
+                    <h4 class="font-bold text-lg mb-2 text-slate-700">Cursos Gratuitos Sugeridos:</h4>
+                    <ul class="space-y-3">
+                        <li><a href="https://www.theodinproject.com/" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">The Odin Project - Currículo Completo</a></li>
+                        <li><a href="https://dotnet.microsoft.com/pt-br/learn/front-end-web-dev" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">Microsoft Learn - Frontend com .NET</a></li>
+                        <li><a href="https://www.udemy.com/pt/topic/front-end-web-development/free/" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">Udemy - Cursos Introdutórios</a></li>
+                    </ul>
+                </div>
+
+                <!-- Card: Backend -->
+                <div id="backend" class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center"><span class="text-3xl mr-3">⚙️</span> Desenvolvimento Backend</h3>
+                    <h4 class="font-bold text-lg mb-2 text-slate-700">Tópicos para discussão:</h4>
+                    <ul class="list-disc list-inside space-y-2 mb-6 text-slate-600">
+                        <li>Linguagens (Python, Node.js, Java, .NET)</li>
+                        <li>Arquitetura de sistemas e microsserviços</li>
+                        <li>Bancos de dados e APIs</li>
+                        <li>Segurança e escalabilidade</li>
+                    </ul>
+                    <h4 class="font-bold text-lg mb-2 text-slate-700">Cursos Gratuitos Sugeridos:</h4>
+                    <ul class="space-y-3">
+                        <li><a href="https://timtec.com.br/" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">Tim Tec - APIs e Banco de Dados</a></li>
+                        <li><a href="https://dotnet.microsoft.com/pt-br/learn/back-end-web-dev" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">Microsoft Learn - Backend com .NET</a></li>
+                        <li><a href="https://cursa.app/curso-desenvolvimento-back-end-online-e-gratuito" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">Cursa.app - Criando APIs com NodeJs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Card: QA -->
+                <div id="qa" class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center"><span class="text-3xl mr-3">🔍</span> Qualidade de Software (QA)</h3>
+                    <h4 class="font-bold text-lg mb-2 text-slate-700">Tópicos para discussão:</h4>
+                    <ul class="list-disc list-inside space-y-2 mb-6 text-slate-600">
+                        <li>Testes manuais e automatizados</li>
+                        <li>Ferramentas de QA (Cypress, Selenium)</li>
+                        <li>Processos e metodologias de qualidade</li>
+                        <li>Cultura de qualidade em projetos</li>
+                    </ul>
+                    <h4 class="font-bold text-lg mb-2 text-slate-700">Cursos Gratuitos Sugeridos:</h4>
+                    <ul class="space-y-3">
+                        <li><a href="https://ebaconline.com.br/qualidade-de-software" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">EBAC Online - Teste de Software</a></li>
+                        <li><a href="https://www.google.com/search?q=PUC-Rio+Digital+cursos+livres+qualidade+software" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">PUC-Rio Digital - Cursos Livres</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Card: Dados/BI -->
+                <div id="dados" class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center"><span class="text-3xl mr-3">📊</span> Análise de Dados & BI</h3>
+                    <h4 class="font-bold text-lg mb-2 text-slate-700">Tópicos para discussão:</h4>
+                    <ul class="list-disc list-inside space-y-2 mb-6 text-slate-600">
+                        <li>Coleta, limpeza e transformação de dados</li>
+                        <li>Ferramentas de análise (Python, R, SQL)</li>
+                        <li>Visualização de dados (Power BI, Tableau)</li>
+                        <li>Construção de dashboards e relatórios</li>
+                    </ul>
+                    <h4 class="font-bold text-lg mb-2 text-slate-700">Cursos Gratuitos Sugeridos:</h4>
+                    <ul class="space-y-3">
+                        <li><a href="https://www.datascienceacademy.com.br/cursosgratuitos" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">Data Science Academy - Fundamentos</a></li>
+                        <li><a href="https://www.escolavirtual.gov.br/" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">Escola Virtual Gov - Análise de Dados</a></li>
+                        <li><a href="https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/aspectos-introdutorios-de-business-intelligence" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">FGV - Introdução a Business Intelligence</a></li>
+                    </ul>
+                </div>
+
+                <!-- Card: Agilidade -->
+                <div id="agilidade" class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center"><span class="text-3xl mr-3">⚡</span> Agilidade e Métodos Ágeis</h3>
+                    <h4 class="font-bold text-lg mb-2 text-slate-700">Tópicos para discussão:</h4>
+                    <ul class="list-disc list-inside space-y-2 mb-6 text-slate-600">
+                        <li>Scrum, Kanban e Lean</li>
+                        <li>Papéis e responsabilidades em times ágeis</li>
+                        <li>Cerimônias e artefatos</li>
+                        <li>Como aplicar agilidade no dia a dia</li>
+                    </ul>
+                    <h4 class="font-bold text-lg mb-2 text-slate-700">Cursos Gratuitos Sugeridos:</h4>
+                    <ul class="space-y-3">
+                        <li><a href="https://sebrae.com.br/sites/PortalSebrae/cursosonline/solucoes-ageis" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">Sebrae - Soluções Ágeis</a></li>
+                        <li><a href="https://orango.senac.br/inicio/cursos/gestao-agil-de-projetos-com-scrum-e-kanban/" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">Senac - Gestão Ágil com Scrum e Kanban</a></li>
+                        <li><a href="https://elevocursos.com.br/cursos/de/administracao/scrum/gratis" target="_blank" class="font-medium text-teal-600 hover:text-teal-800">Elevo Cursos - Scrum Grátis</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Guia da Mentora -->
+        <section id="guia" class="py-16">
+            <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8 text-center">💡 Guia da Mentora</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                    <div>
+                        <h3 class="font-bold text-xl mb-3 text-teal-700">✅ Seu Papel na Mentoria</h3>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li>**Indicar:** Recursos, cursos, livros, comunidades.</li>
+                            <li>**Compartilhar:** Experiências e aprendizados.</li>
+                            <li>**Ajudar:** A solucionar problemas e desmistificar conceitos.</li>
+                            <li>**Dar dicas:** Conselhos práticos e acionáveis.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl mb-3 text-teal-700">➡️ Próximos Passos e Acompanhamento</h3>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li>**Recapitular:** Pontos discutidos e decisões.</li>
+                            <li>**Definir Ações:** 1 a 3 passos concretos para a mentorada.</li>
+                            <li>**Disponibilidade:** Reforçar que está disponível para dúvidas.</li>
+                            <li>**Feedback:** Pedir feedback sobre a sessão.</li>
+                        </ul>
+                    </div>
+                    <div class="md:col-span-2 mt-6">
+                        <h3 class="font-bold text-xl mb-3 text-teal-700">Observações Importantes</h3>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li>**Escuta Ativa:** Priorize ouvir mais do que falar.</li>
+                            <li>**Flexibilidade:** Este modelo é um guia, adapte conforme a conversa.</li>
+                            <li>**Empatia:** Lembre-se que cada jornada é única.</li>
+                            <li>**Foco na Solução:** Ajude a mentorada a encontrar as próprias soluções.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-8">
+        <p class="text-slate-500">Aplicação de Mentoria criada com 💙.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('marketDemandChart').getContext('2d');
+            
+            const data = {
+                labels: ['Frontend', 'Backend', 'Dados & BI', 'Agilidade', 'Qualidade (QA)', 'Carreira'],
+                datasets: [{
+                    label: 'Demanda de Mercado (Índice Fictício)',
+                    data: [90, 85, 80, 75, 70, 95],
+                    backgroundColor: [
+                        'rgba(15, 118, 110, 0.6)', // teal-700
+                        'rgba(13, 148, 136, 0.6)', // teal-600
+                        'rgba(20, 184, 166, 0.6)', // teal-500
+                        'rgba(45, 212, 191, 0.6)', // teal-400
+                        'rgba(107, 114, 128, 0.6)', // gray-500
+                        'rgba(79, 70, 229, 0.6)' // indigo-600
+                    ],
+                    borderColor: [
+                        'rgba(15, 118, 110, 1)',
+                        'rgba(13, 148, 136, 1)',
+                        'rgba(20, 184, 166, 1)',
+                        'rgba(45, 212, 191, 1)',
+                        'rgba(107, 114, 128, 1)',
+                        'rgba(79, 70, 229, 1)'
+                    ],
+                    borderWidth: 1.5,
+                    borderRadius: 8,
+                }]
+            };
+
+            const options = {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#e2e8f0' // slate-200
+                        },
+                        ticks: {
+                            color: '#475569' // slate-600
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#334155', // slate-700
+                            font: {
+                                weight: '600'
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: '#0f172a', // slate-900
+                        titleFont: {
+                            size: 16
+                        },
+                        bodyFont: {
+                            size: 14
+                        },
+                        padding: 12,
+                        cornerRadius: 8,
+                        displayColors: false
+                    }
+                }
+            };
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: data,
+                options: options
+            });
+        });
+    </script>
+</body>
+</html>
