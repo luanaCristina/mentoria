@@ -1,21 +1,21 @@
-✨ Modelo de Mentoria em Tecnologia para Mulheres ✨
+# ✨ Modelo de Mentoria em Tecnologia para Mulheres ✨
 Olá, [Nome da Mentorada]!
 
 É um prazer te ter aqui. Meu objetivo é te apoiar e guiar na sua jornada profissional em tecnologia. Para começarmos, gostaria de entender um pouco mais sobre seus objetivos e os desafios que você está enfrentando.
 
 Sinta-se à vontade para compartilhar o que precisar. Estou aqui para ouvir, compartilhar experiências, dar dicas e te ajudar a encontrar os melhores caminhos.
 
-🚀 Introdução e Alinhamento de Expectativas
+## 🚀 Introdução e Alinhamento de Expectativas
 Objetivo da sessão: Qual o principal foco que você gostaria de dar a esta sessão?
 
 O que você busca com a mentoria? (Ex: Dúvidas específicas, orientação de carreira, desenvolvimento de habilidades, etc.)
 
 Seus principais desafios no momento: O que te impede de avançar ou o que te causa mais preocupação?
 
-🎯 Áreas de Interesse e Desafios Específicos
+## 🎯 Áreas de Interesse e Desafios Específicos
 Vamos explorar as áreas que mais te interessam ou onde você busca mais apoio. Por favor, me diga em qual(is) das seguintes áreas você gostaria de focar hoje:
 
-💼 Carreira em Tecnologia
+## 💼 Carreira em Tecnologia
 Desenvolvimento profissional (trajetória, promoções, transição de carreira)
 
 Networking e marca pessoal
@@ -34,7 +34,7 @@ SENAI - Mulheres na Indústria: Abre cursos EAD gratuitos de tecnologia, alguns 
 
 Cisco - Women Rock IT: Programa gratuito com cursos profissionalizantes de tecnologia na área de Redes, que também visa motivar mulheres para carreiras STEM. (Verifique as edições e inscrições no site da Cisco Networking Academy.)
 
-💻 Desenvolvimento Frontend
+## 💻 Desenvolvimento Frontend
 Tecnologias e frameworks (React, Angular, Vue, etc.)
 
 Melhores práticas de código
@@ -51,7 +51,7 @@ Microsoft Learn: Oferece cursos gratuitos como "Aprenda o desenvolvimento de fro
 
 The Odin Project: Embora seja um currículo completo, oferece muitos recursos e projetos práticos gratuitos para aprender desenvolvimento web, incluindo frontend. (Disponível aqui)
 
-⚙️ Desenvolvimento Backend
+## ⚙️ Desenvolvimento Backend
 Linguagens e frameworks (Python, Node.js, Java, .NET, etc.)
 
 Arquitetura de sistemas
@@ -70,7 +70,7 @@ Microsoft Learn: Oferece cursos gratuitos como "Aprenda sobre desenvolvimento de
 
 Cursa.app: Oferece cursos online 100% gratuitos com certificado, incluindo "Criando APIs com NodeJs", que aborda Node, NPM, MongoDB e autenticação. (Disponível aqui)
 
-🔍 Qualidade de Software (QA)
+## 🔍 Qualidade de Software (QA)
 Testes (manuais, automatizados, de performance, etc.)
 
 Ferramentas de QA
@@ -85,7 +85,7 @@ EBAC Online: Oferece um "Curso de Teste de Software online" que aborda princípi
 
 PUC-Rio Digital (Cursos Livres): Embora alguns sejam pagos, a PUC-Rio oferece cursos livres que podem ter módulos ou introduções gratuitas sobre "Teste e Qualidade de Software", abordando processos e técnicas de teste. (Verifique a disponibilidade de cursos abertos em: https://especializacao.ccec.puc-rio.br/cursos-livres/teste-qualidade-software)
 
-📊 Análise de Dados e Business Intelligence (BI)
+## 📊 Análise de Dados e Business Intelligence (BI)
 Coleta, limpeza e transformação de dados
 
 Ferramentas de análise (Python, R, SQL)
@@ -104,7 +104,7 @@ Data Science Academy (DSA): Possui uma seção de cursos gratuitos, incluindo "F
 
 FGV Educação Executiva: Oferece cursos online gratuitos como "Aspectos Introdutórios de Business Intelligence", que aborda conceitos de BI, modelagem dimensional e data warehouse. (Disponível aqui)
 
-⚡ Agilidade e Métodos Ágeis
+## ⚡ Agilidade e Métodos Ágeis
 Scrum, Kanban, Lean
 
 Papéis e responsabilidades em times ágeis
@@ -121,7 +121,7 @@ Senac (Orango): Possui o curso gratuito "Gestão ágil de projetos com Scrum e K
 
 Elevo Cursos: Oferece um "Curso Grátis de Scrum com Certificado", que cobre os principais conceitos de Scrum, papéis, cerimônias e artefatos. (Disponível aqui)
 
-✅ Exploração e Ações (Seu Papel como Mentora)
+## ✅ Exploração e Ações (Seu Papel como Mentora)
 Nesta seção, com base no que a mentorada compartilhou, você pode:
 
 Indicar: Recursos, cursos, livros, artigos, comunidades, pessoas para seguir.
@@ -142,7 +142,7 @@ Perguntas que você pode fazer:
 
 "Como você imagina que essa nova habilidade/conhecimento pode te ajudar?"
 
-➡️ Próximos Passos e Acompanhamento
+## ➡️ Próximos Passos e Acompanhamento
 Recapitulação: Quais foram os principais pontos discutidos e as decisões tomadas?
 
 Ações a serem tomadas pela mentorada: Quais são os 1-3 próximos passos concretos que ela pode seguir até a próxima sessão (se houver)?
@@ -151,7 +151,7 @@ Disponibilidade para dúvidas: Reforce que você está disponível para pergunta
 
 Feedback: Peça feedback sobre a sessão para melhorar suas futuras mentorias.
 
-💡 Observações Importantes para Você (Mentora)
+## 💡 Observações Importantes para Você (Mentora)
 Escuta Ativa: Priorize ouvir mais do que falar. As melhores mentorias são aquelas onde a mentorada se sente ouvida e compreendida.
 
 Flexibilidade: Este modelo é um guia. Sinta-se à vontade para ir e vir entre as seções conforme a conversa fluir.
