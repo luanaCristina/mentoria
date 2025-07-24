@@ -163,4 +163,208 @@ Não ter todas as respostas: É ok não ter a resposta para tudo. Você pode sug
 
 Foco na Solução: Ajude a mentorada a encontrar as próprias soluções, em vez de apenas dar respostas prontas.
 
-Espero que este modelo te ajude a conduzir sessões de mentoria impactantes e significativas para as mulheres no evento de tecnologia! Boa sorte!
+# Apresentação
+https://app.presentations.ai/view/b8k2iGIpjs 
+https://github.com/luanaCristina/mentoria 
+
+# Agenda e horário das mentors
+https://docs.google.com/spreadsheets/d/1dg_20gVrDawxuZmjj0PxX_n4z0CPuzg8GgH29sJrVSk/edit?gid=0#gid=0 
+
+https://app.jalanlive.com/tw2025/agenda 
+
+# Descubra e estudo sobre a carreira que você deseja investir:
+https://roadmap.sh/roadmaps 
+
+# Dicas de cursos e bootcamps
+
+Reactor tem diversas séries de cursos e alguns dão certificação Microsoft
+https://developer.microsoft.com/en-us/reactor/  
+
+## Cursos voltados para mulheres:
+https://womakerscode.org/bi-instituto-localiza/
+https://www.programaria.org/sobre-nos/ 
+https://reprograma.com.br/ 
+
+## +100 cursos e bootcamps gratuitos!!!
+
+👨🏻‍💻 Bootcamp NTT Data - Engenharia de dados com Python
+bit.ly/4dxqySJ 
+
+👨🏻‍💻 IT For Girls - Mentoria de carreira sobre liderança feminina na tecnologia, Cloud Computing, Segurança Cibernética, Programação e Dicas para Processos Seletivos com a NTT DATA
+bit.ly/4cBuK2M 
+
+👨🏻‍💻 Projeto Carreira - Capacitação gratuita para o mercado de trabalho (em uberlândia)
+bit.ly/inscrevaagorainstituto 
+
+👨🏻‍💻 Langflow Maior Hackathon de IA do Brasil - 50k em prêmios
+bit.ly/maiorcompeticaodeiadobrasil 
+
+👨🏻‍💻 Educatech - Formação de lideranças e educadoras tech para fortalecer o protagonismo feminino na área de TI
+bit.ly/4cFFFbJ 
+
+👨🏻‍💻 Coding The Future XP Inc - Full Stack Developer
+bit.ly/3WWqxkg 
+
+👨🏻‍💻 _Womakers code - Hacking de carreira - 1000 vagas para programa de mentoria de carreira e empregabilidade para mulheres em TI
+bit.ly/3Au6iTp 
+
+👨🏻‍💻 UberHub Code Club - Pré-inscrições abertas para quem quer aprender a programa gratuitamente em Uberlândia
+bit.ly/3Xc0B5v 
+
+👨🏻‍💻 Coding The Future Deal - Spring Boot e Angular (17+)
+bit.ly/4fXP3tT 
+
+👨🏻‍💻 Curso gratuito para Certificação Microsoft 365 Fundamentals MS 900
+bit.ly/4dBH4kE 
+
+👨🏻‍💻 Desafio React -  7 Days Of Code de React
+bit.ly/46Z2eXy 
+
+👨🏻‍💻 Certificações Em Scrum, BI, Marketing Digital, E Outras Gratuitas Da CertiProf
+bit.ly/4cClCdZ 
+
+👨🏻‍💻 Tire as certificações profissionais Fortinet FCF e FCA de graça e com treinamento oficial
+bit.ly/4dyfjJH 
+
+👨🏻‍💻 ITA Cursos: Desenvolvimento Ágil, Controle De Sistemas E Outras Disciplinas Gratuitas
+bit.ly/3yRSySc 
+
+👨🏻‍💻 30 sites de desafios para treinar e praticar lógica de programação
+bit.ly/3WWtwJp 
+
+👨🏻‍💻 Aprenda Linux Gratuitamente Com Certificado
+bit.ly/3yTgX9P 
+
+👨🏻‍💻 Bootcamp Coding The future - Java com Spring Boot (DIO + claro)
+bit.ly/4cC1fxQ 
+
+👨🏻‍💻 IBM - Treinamentos gratuitos para aprender habilidades profissionais que o ajudarão a conseguir um emprego
+bit.ly/470OlIc 
+
+👨🏻‍💻 Cursos De Javascript, Flutter, Python E Outros Gratuitos: Plataforma Cod3r
+bit.ly/4cAxBZD 
+
+👨🏻‍💻 Curso de Introdução à programação com Python - Santander Open AcademY
+bit.ly/3YQpmWe
+
+👨🏻‍💻 Santander GamerPRO 8.000 bolsas para curso onde você pode aprender e aperfeiçoar suas técnicas nos games
+bit.ly/3yZ2UPZ 
+
+👨🏻‍💻 Bootcamp de desenvolvimento de software gratuito da New Rizon
+bit.ly/3MjEAvw 
+
+👨🏻‍💻 Cursos Gratuitos - O Brain cedeu diversos cursos (metodologias ágeis, OKR e outros) gratuitos para todos do UberHub
+bit.ly/cursosgratuitosbrain 
+
+👨🏻‍💻 Cursos de Inteligência Artificial, Programação E Outros Gratuitos Da Crowd Academy para Empresas e Profissionais
+bit.ly/3X57W5Q 
+
+👨🏻‍💻 Cubos Academy - Minicurso Gratuito de desenvolvimento de software com IA
+bit.ly/4cCjcMr 
+
+👨🏻‍💻 Cursos Gratuitos: Computação em Nuvem, IA, Desenvolvimento Mobile E Mais!
+bit.ly/4dFjCDq 
+
+👨🏻‍💻 Cursos De PHP, Java, SEO, Algorítimos, Inglês E Outros Gratuitos
+bit.ly/3AEPs4A 
+
+👨🏻‍💻 Aprenda Hardware, Java, SQL, AutoCad E Outras Opções Grátis
+bit.ly/4dShw2p 
+
+👨🏻‍💻 Curso de inteligência Artificial gratuito (escola conquer)
+bit.ly/3Zfmd2z 
+
+Creditos; 
+Gostou? Quer receber outras dicas como essa? Entre agora em bit.ly/4dvFSPH 
+🩷 Feito com amor por voluntários do UberHub 🩷
+Comunidade dedicada ao ecossistema de inovação e startups de Uberlândia 
+
+
+# Cursos para aprender desenvolvimentos de sistemas
+https://web.dio.me/play?section_type=bootcamp (Bootcamps gratuitos que ensina do início até a criação de algo em diversas linguagens) - observação: Fique atento as ofertas porque as empresas divulgam em meses e períodos diferentes nessa plataforma.
+https://www.oceanbrasil.com/noticias/detalhes/?news_id=133 (cursos ao vivo e ead gratuito). Segue a mesma estrutura da DIO. Não é sempre que tem ofertas.
+https://www.ev.org.br/# (Fundação Bradesco tem diversos cursos gratuitos)
+https://www.edx.org/ 
+https://www.becas-santander.com/pt_br/index.html (Cursos da Santander com Bolsas, inclusive intercâmbios)
+https://reprograma.com.br/ (Bootcamps voltado para mulheres e quem se identifica)
+https://aprendamais.mec.gov.br/ (Gov BR)
+https://www.escolavirtual.gov.br/ (Escola Virtual ENAP)
+https://moodle.ifrs.edu.br/course/index.php?categoryid=38 (IFRS)
+https://ead.escoladotrabalhador40.com.br/ (Escola trabalhador 4.0)
+
+Curso de inglês
+https://www.ualberta.ca/international/international-student-services/events/english-conversation-club.html (FREE - English Conversation Club (ECC) - University of Alberta International - Canadad)
+https://www.talkntalk.com.br/  (Talk'n Talk -Comunidade de conversação em Inglês, tenho participado das aulas gratuitas e está sendo bem legal, precisamos falar, para falar inglês, só estudar por vídeos e cursos, não vai adiantar, tem que se expor.)
+https://kultivi.com/cursos/idiomas/ingles (Kultivi - Curso gratuito de Inglês.)
+https://www.languagereactor.com/ (Muito Top!!! demais mesmo, essa extensão do Chrome para aprender inglês com vídeos do youtube, netflix e muito mais, ajuda você a descobrir, compreender e aprender com materiais nativos. O estudo se tornará mais eficaz, interessante e agradável!)
+Cursos Microsoft
+Microsoft Developer
+https://learn.microsoft.com/en-us/training/browse/?roles=developer
+
+Microsoft Power BI Data Analyst Associate
+https://learn.microsoft.com/en-us/certifications/power-bi-data-analyst-associate/
+
+Microsoft Business Analyst
+https://learn.microsoft.com/en-us/training/browse/?roles=business-analyst
+
+Google
+https://developer.android.com/courses?hl=pt-br
+
+(atividades e passo a passo explicando como usar o android studio e programando em kotlin - muito bom)
+https://developer.android.com/codelabs/basic-android-kotlin-training-first-kotlin-program?hl=pt-br#1 (primeiros passos com o kotlin e android studio)
+https://levelup.gitconnected.com/building-a-simple-calculator-in-kotlin-using-android-studio-e877dec52768 (passo a passo para criar uma calculadora no android studio studio)
+
+
+Aqui no Coursera tem tbm cursos da Google e vocês podem atuar em diversas áreas
+https://pt.coursera.org/search?query=google&amp; 
+tem curso que são pagos mas tu podes pedir pra a coursera que eles liberam de grátis
+
+Apostilashttps://www.alura.com.br/apostilas
+
+## Testes
+
+https://iterasys.com.br/pt 
+https://testautomationu.applitools.com/
+https://alison.com/courses/it#google_vignette 
+https://www.coursera.org/courses?query=software%20testing&utm_medium=sem&utm_source=gg&utm_campaign=b2c_latam_x_multi_ftcof_career-academy_cx_dr_bau_gg_pmax_gc_s1-v2_en_m_hyb_24-04_nonNRL-within-14d&campaignid=21239613742&adgroupid=&device=c&keyword=&matchtype=&network=x&devicemodel=&creativeid=&assetgroupid=6501905150&targetid=&extensionid=&placement=&gad_source=1&gad_campaignid=21320925518&gbraid=0AAAAADdKX6arDntxW-GA_LmVwKEPX3Ai8&gclid=Cj0KCQjws4fEBhD-ARIsACC3d28zJsSlNxkgGiQR0GMao5NPUdXE9CJXD1RwgR6da1Q8AFG_hCQcWL8aAq-oEALw_wcB 
+
+# Outras dicas Cursos
+https://www.fm2s.com.br/cursos/gratuitos 
+https://aprendamais.mec.gov.br/
+https://gorecife.recife.pe.gov.br/cursos
+https://www.escolavirtual.gov.br/catalogo 
+https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/qualificacao-profissional/caminho-digital 
+
+Ikigai Teste 
+https://ikigaitest.com/pt/ 
+
+16 personalidades 
+https://www.16personalities.com/br/teste-de-personalidade 
+
+Teste de Perfil de Aprendizagem 
+https://www.cchla.ufpb.br/aprendizagem/ 
+
+Comunidades de Mulheres na Tecnologia 
+Mulheres em Dados 
+
+## cyber
+Existem CTFs pagos e free 
+Iniciante: tryhackme.com
+
+Avançados e Pagos: 
+hackingclub.com
+hacktgebox
+
+Hacker do Bem: 
+CTF - GoHacking Academy 
+
+Cisco: APNIC (depende pq tem que está inscrito nos cursos ofertados)
+
+FEBRABAN: 
+GoHacking Academy (precisa ser selecionado nos cursos e tbm tem a parte paga)
+
+## instagram 
+Projeto Start - Rede Cidadã - @start_recife (frontend e backend) 
+Softex - @softexpernambuco (frontend e backend) 
+Formação Condomínio Digital - Instituto Aliança - @cdda.0 (backend) 
+@ia.restart - Instituto Aliança (AWS e dão voucher para certificação)
