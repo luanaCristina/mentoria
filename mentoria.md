@@ -184,6 +184,7 @@ https://developer.microsoft.com/en-us/reactor/
 https://womakerscode.org/bi-instituto-localiza/
 https://www.programaria.org/sobre-nos/ 
 https://reprograma.com.br/ 
+https://www.mulheresemdados.com/ 
 
 ## +100 cursos e bootcamps gratuitos!!!
 
@@ -280,7 +281,7 @@ Gostou? Quer receber outras dicas como essa? Entre agora em bit.ly/4dvFSPH
 Comunidade dedicada ao ecossistema de inovação e startups de Uberlândia 
 
 
-# Cursos para aprender desenvolvimentos de sistemas
+## Cursos para aprender desenvolvimentos de sistemas
 https://web.dio.me/play?section_type=bootcamp (Bootcamps gratuitos que ensina do início até a criação de algo em diversas linguagens) - observação: Fique atento as ofertas porque as empresas divulgam em meses e períodos diferentes nessa plataforma.
 https://www.oceanbrasil.com/noticias/detalhes/?news_id=133 (cursos ao vivo e ead gratuito). Segue a mesma estrutura da DIO. Não é sempre que tem ofertas.
 https://www.ev.org.br/# (Fundação Bradesco tem diversos cursos gratuitos)
@@ -292,7 +293,7 @@ https://www.escolavirtual.gov.br/ (Escola Virtual ENAP)
 https://moodle.ifrs.edu.br/course/index.php?categoryid=38 (IFRS)
 https://ead.escoladotrabalhador40.com.br/ (Escola trabalhador 4.0)
 
-Curso de inglês
+## Curso de inglês
 https://www.ualberta.ca/international/international-student-services/events/english-conversation-club.html (FREE - English Conversation Club (ECC) - University of Alberta International - Canadad)
 https://www.talkntalk.com.br/  (Talk'n Talk -Comunidade de conversação em Inglês, tenho participado das aulas gratuitas e está sendo bem legal, precisamos falar, para falar inglês, só estudar por vídeos e cursos, não vai adiantar, tem que se expor.)
 https://kultivi.com/cursos/idiomas/ingles (Kultivi - Curso gratuito de Inglês.)
@@ -301,25 +302,29 @@ Cursos Microsoft
 Microsoft Developer
 https://learn.microsoft.com/en-us/training/browse/?roles=developer
 
-Microsoft Power BI Data Analyst Associate
+## Microsoft Power BI Data Analyst Associate
 https://learn.microsoft.com/en-us/certifications/power-bi-data-analyst-associate/
 
-Microsoft Business Analyst
+## Microsoft Business Analyst
 https://learn.microsoft.com/en-us/training/browse/?roles=business-analyst
 
-Google
+## Google
 https://developer.android.com/courses?hl=pt-br
 
 (atividades e passo a passo explicando como usar o android studio e programando em kotlin - muito bom)
 https://developer.android.com/codelabs/basic-android-kotlin-training-first-kotlin-program?hl=pt-br#1 (primeiros passos com o kotlin e android studio)
 https://levelup.gitconnected.com/building-a-simple-calculator-in-kotlin-using-android-studio-e877dec52768 (passo a passo para criar uma calculadora no android studio studio)
 
-
+## Coursera
 Aqui no Coursera tem tbm cursos da Google e vocês podem atuar em diversas áreas
 https://pt.coursera.org/search?query=google&amp; 
 tem curso que são pagos mas tu podes pedir pra a coursera que eles liberam de grátis
 
-Apostilashttps://www.alura.com.br/apostilas
+## Apostilas: 
+https://www.alura.com.br/apostilas
+
+## Livros: 
+https://engsoftmoderna.info/
 
 ## Testes
 
@@ -327,25 +332,21 @@ https://iterasys.com.br/pt
 https://testautomationu.applitools.com/
 https://alison.com/courses/it#google_vignette 
 https://www.coursera.org/courses?query=software%20testing&utm_medium=sem&utm_source=gg&utm_campaign=b2c_latam_x_multi_ftcof_career-academy_cx_dr_bau_gg_pmax_gc_s1-v2_en_m_hyb_24-04_nonNRL-within-14d&campaignid=21239613742&adgroupid=&device=c&keyword=&matchtype=&network=x&devicemodel=&creativeid=&assetgroupid=6501905150&targetid=&extensionid=&placement=&gad_source=1&gad_campaignid=21320925518&gbraid=0AAAAADdKX6arDntxW-GA_LmVwKEPX3Ai8&gclid=Cj0KCQjws4fEBhD-ARIsACC3d28zJsSlNxkgGiQR0GMao5NPUdXE9CJXD1RwgR6da1Q8AFG_hCQcWL8aAq-oEALw_wcB 
+https://engsoftmoderna.info/cap8.html
+https://ikigaitest.com/pt/ 
 
-# Outras dicas Cursos
+## Outras dicas Cursos
 https://www.fm2s.com.br/cursos/gratuitos 
 https://aprendamais.mec.gov.br/
 https://gorecife.recife.pe.gov.br/cursos
 https://www.escolavirtual.gov.br/catalogo 
 https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/qualificacao-profissional/caminho-digital 
 
-Ikigai Teste 
-https://ikigaitest.com/pt/ 
-
 16 personalidades 
 https://www.16personalities.com/br/teste-de-personalidade 
 
 Teste de Perfil de Aprendizagem 
 https://www.cchla.ufpb.br/aprendizagem/ 
-
-Comunidades de Mulheres na Tecnologia 
-Mulheres em Dados 
 
 ## cyber
 Existem CTFs pagos e free 
@@ -368,3 +369,15 @@ Projeto Start - Rede Cidadã - @start_recife (frontend e backend)
 Softex - @softexpernambuco (frontend e backend) 
 Formação Condomínio Digital - Instituto Aliança - @cdda.0 (backend) 
 @ia.restart - Instituto Aliança (AWS e dão voucher para certificação)
+
+## Sobre agilidade e testes
+https://docs.google.com/presentation/d/1n_W9I26kFlb4YL42bicWID5SYhL8uDsTqAHaBmIYuQg/edit?slide=id.p1#slide=id.p1 
+https://docs.google.com/presentation/d/1n_W9I26kFlb4YL42bicWID5SYhL8uDsTqAHaBmIYuQg/edit?pli=1&slide=id.p2#slide=id.p2 
+https://docs.google.com/presentation/d/1qnGSspm_-DTxML29jbtpdmCHcymv3nWjjFPWWU1beDo/edit?slide=id.p1#slide=id.p1 
+https://docs.google.com/presentation/d/1qnGSspm_-DTxML29jbtpdmCHcymv3nWjjFPWWU1beDo/edit?slide=id.p31#slide=id.p31 
+https://docs.google.com/presentation/d/14XPyAN_7v1B2yHQw8-2O9DUN4xcxuyB8WQHXKNTf1xA/edit?slide=id.g31d9387049c_0_216#slide=id.g31d9387049c_0_216
+
+https://luanacroft.atlassian.net/jira/software/projects/LU/boards/2 
+https://luanacroft.atlassian.net/plugins/servlet/ac/com.infostretch.QmetryTestManager/qtm4j-test-management?project.key=LU&project.id=10001#!/Manage/TestCase 
+https://luanacroft.atlassian.net/plugins/servlet/ac/com.infostretch.QmetryTestManager/qtm4j-test-management?project.key=LU&project.id=10001#!/Manage/TestCycle
+https://luanacroft.atlassian.net/jira/software/projects/LU/boards/2 
