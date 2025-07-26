@@ -320,6 +320,28 @@ Aqui no Coursera tem tbm cursos da Google e vocês podem atuar em diversas área
 https://pt.coursera.org/search?query=google&amp; 
 tem curso que são pagos mas tu podes pedir pra a coursera que eles liberam de grátis
 
+## Santander Open Academy 
+https://app.santanderopenacademy.com/pt-BR/program/santander-imersao-digital 
+
+## Oracle Next Education
+https://www.oracle.com/br/education/oracle-next-education/
+
+## cyber
+Existem CTFs pagos e free 
+Iniciante: tryhackme.com
+
+Avançados e Pagos: 
+hackingclub.com
+hacktgebox
+
+Hacker do Bem: 
+CTF - GoHacking Academy 
+
+Cisco: APNIC (depende pq tem que está inscrito nos cursos ofertados)
+
+FEBRABAN: 
+GoHacking Academy (precisa ser selecionado nos cursos e tbm tem a parte paga)
+
 ## Apostilas: 
 https://www.alura.com.br/apostilas
 
@@ -348,27 +370,16 @@ https://www.16personalities.com/br/teste-de-personalidade
 Teste de Perfil de Aprendizagem 
 https://www.cchla.ufpb.br/aprendizagem/ 
 
-## cyber
-Existem CTFs pagos e free 
-Iniciante: tryhackme.com
-
-Avançados e Pagos: 
-hackingclub.com
-hacktgebox
-
-Hacker do Bem: 
-CTF - GoHacking Academy 
-
-Cisco: APNIC (depende pq tem que está inscrito nos cursos ofertados)
-
-FEBRABAN: 
-GoHacking Academy (precisa ser selecionado nos cursos e tbm tem a parte paga)
+## Entrevista, criando/melhorando LinkedIn
+https://www.instagram.com/reel/DLXaZrWu8sU/?igsh=MTNrOWNvOHB3NWQ2cA%3D%3D (sobre entrevista)
+https://www.linkedin.com/pulse/dicas-de-ouro-do-linkedin-para-2025-elton-daniel-leme-8ogvf/ (Melhorando o nosso LinkedIn)
 
 ## instagram 
 Projeto Start - Rede Cidadã - @start_recife (frontend e backend) 
 Softex - @softexpernambuco (frontend e backend) 
 Formação Condomínio Digital - Instituto Aliança - @cdda.0 (backend) 
 @ia.restart - Instituto Aliança (AWS e dão voucher para certificação)
+Nasa Space Recife - https://www.instagram.com/nasaspacerecife/
 
 ## Sobre agilidade e testes
 https://docs.google.com/presentation/d/1n_W9I26kFlb4YL42bicWID5SYhL8uDsTqAHaBmIYuQg/edit?slide=id.p1#slide=id.p1 
