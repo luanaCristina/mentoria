@@ -186,100 +186,82 @@ https://www.programaria.org/sobre-nos/
 https://reprograma.com.br/ 
 https://www.mulheresemdados.com/ 
 
-## +100 cursos e bootcamps gratuitos!!!
+## Cursos e bootcamps gratuitos!!!
+
+👨🏻‍💻 Cursos De PHP, Java, SEO, Algorítimos, Inglês E Outros Gratuitos
+https://www.cursoemvideo.com/cursos/
 
 👨🏻‍💻 Bootcamp NTT Data - Engenharia de dados com Python
-bit.ly/4dxqySJ 
+dio.me/bootcamp/engenharia-dados-python 
 
 👨🏻‍💻 IT For Girls - Mentoria de carreira sobre liderança feminina na tecnologia, Cloud Computing, Segurança Cibernética, Programação e Dicas para Processos Seletivos com a NTT DATA
-bit.ly/4cBuK2M 
+https://www.maismulheres.tech/courses/it-for-girls
 
 👨🏻‍💻 Projeto Carreira - Capacitação gratuita para o mercado de trabalho (em uberlândia)
-bit.ly/inscrevaagorainstituto 
-
-👨🏻‍💻 Langflow Maior Hackathon de IA do Brasil - 50k em prêmios
-bit.ly/maiorcompeticaodeiadobrasil 
+https://institutoprojetodevida.org/carreira/
 
 👨🏻‍💻 Educatech - Formação de lideranças e educadoras tech para fortalecer o protagonismo feminino na área de TI
-bit.ly/4cFFFbJ 
+https://reprograma.com.br/curso-educatech/
 
 👨🏻‍💻 Coding The Future XP Inc - Full Stack Developer
-bit.ly/3WWqxkg 
+https://www.dio.me/bootcamp/coding-the-future-xp-full-stack-developer 
 
 👨🏻‍💻 _Womakers code - Hacking de carreira - 1000 vagas para programa de mentoria de carreira e empregabilidade para mulheres em TI
-bit.ly/3Au6iTp 
+https://www.maismulheres.tech/collections (cursos)
+https://womakerscode.org/formacao-em-tecnologia/ (formação)
 
 👨🏻‍💻 UberHub Code Club - Pré-inscrições abertas para quem quer aprender a programa gratuitamente em Uberlândia
 bit.ly/3Xc0B5v 
 
 👨🏻‍💻 Coding The Future Deal - Spring Boot e Angular (17+)
-bit.ly/4fXP3tT 
+https://uberhubcode.org/
 
 👨🏻‍💻 Curso gratuito para Certificação Microsoft 365 Fundamentals MS 900
-bit.ly/4dBH4kE 
+https://register.gotowebinar.com/register/7184959282875434845?source=Redes+Sociais
 
 👨🏻‍💻 Desafio React -  7 Days Of Code de React
-bit.ly/46Z2eXy 
+https://7daysofcode.io/matricula/react-twitter
 
 👨🏻‍💻 Certificações Em Scrum, BI, Marketing Digital, E Outras Gratuitas Da CertiProf
-bit.ly/4cClCdZ 
+https://certiprof.com/pages/free-resources
 
 👨🏻‍💻 Tire as certificações profissionais Fortinet FCF e FCA de graça e com treinamento oficial
-bit.ly/4dyfjJH 
+https://training.fortinet.com/local/library/
 
 👨🏻‍💻 ITA Cursos: Desenvolvimento Ágil, Controle De Sistemas E Outras Disciplinas Gratuitas
-bit.ly/3yRSySc 
+https://www.coursera.org/partners/ita 
 
-👨🏻‍💻 30 sites de desafios para treinar e praticar lógica de programação
-bit.ly/3WWtwJp 
+👨🏻‍💻 Notícias sobre cursos:
+https://guiadeti.com.br/ 
 
 👨🏻‍💻 Aprenda Linux Gratuitamente Com Certificado
-bit.ly/3yTgX9P 
+https://linuxtips.io/treinamento/linux-essentials/ 
 
 👨🏻‍💻 Bootcamp Coding The future - Java com Spring Boot (DIO + claro)
-bit.ly/4cC1fxQ 
+https://www.dio.me/bootcamp/coding-the-future-claro-java-spring-boot
+
+👨🏻‍💻 DIO Bootcamps gratuitos
+https://www.dio.me/bootcamp
 
 👨🏻‍💻 IBM - Treinamentos gratuitos para aprender habilidades profissionais que o ajudarão a conseguir um emprego
-bit.ly/470OlIc 
-
-👨🏻‍💻 Cursos De Javascript, Flutter, Python E Outros Gratuitos: Plataforma Cod3r
-bit.ly/4cAxBZD 
+https://skillsbuild.org/pt-br/adult-learners 
 
 👨🏻‍💻 Curso de Introdução à programação com Python - Santander Open AcademY
-bit.ly/3YQpmWe
+https://app.santanderopenacademy.com/pt-BR/course/introduction_to_python_programming
 
-👨🏻‍💻 Santander GamerPRO 8.000 bolsas para curso onde você pode aprender e aperfeiçoar suas técnicas nos games
-bit.ly/3yZ2UPZ 
-
-👨🏻‍💻 Bootcamp de desenvolvimento de software gratuito da New Rizon
-bit.ly/3MjEAvw 
-
-👨🏻‍💻 Cursos Gratuitos - O Brain cedeu diversos cursos (metodologias ágeis, OKR e outros) gratuitos para todos do UberHub
-bit.ly/cursosgratuitosbrain 
+👨🏻‍💻 Santander Cursos
+https://www.santanderopenacademy.com/pt_br/courses-quick-access.html
 
 👨🏻‍💻 Cursos de Inteligência Artificial, Programação E Outros Gratuitos Da Crowd Academy para Empresas e Profissionais
-bit.ly/3X57W5Q 
+https://academy.crowd.br.com/
 
 👨🏻‍💻 Cubos Academy - Minicurso Gratuito de desenvolvimento de software com IA
-bit.ly/4cCjcMr 
-
-👨🏻‍💻 Cursos Gratuitos: Computação em Nuvem, IA, Desenvolvimento Mobile E Mais!
-bit.ly/4dFjCDq 
-
-👨🏻‍💻 Cursos De PHP, Java, SEO, Algorítimos, Inglês E Outros Gratuitos
-bit.ly/3AEPs4A 
-
-👨🏻‍💻 Aprenda Hardware, Java, SQL, AutoCad E Outras Opções Grátis
-bit.ly/4dShw2p 
+https://www.cubos.academy/lp/minicurso-desenvolvimento-de-software 
 
 👨🏻‍💻 Curso de inteligência Artificial gratuito (escola conquer)
-bit.ly/3Zfmd2z 
+https://escolaconquer.com.br/liberacao-inteligencia-artificial 
 
-Creditos; 
-Gostou? Quer receber outras dicas como essa? Entre agora em bit.ly/4dvFSPH 
-🩷 Feito com amor por voluntários do UberHub 🩷
-Comunidade dedicada ao ecossistema de inovação e startups de Uberlândia 
-
+Creditos: UberHub
 
 ## Cursos para aprender desenvolvimentos de sistemas
 https://web.dio.me/play?section_type=bootcamp (Bootcamps gratuitos que ensina do início até a criação de algo em diversas linguagens) - observação: Fique atento as ofertas porque as empresas divulgam em meses e períodos diferentes nessa plataforma.
