@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holistic Testing Strategy: Kiro & Thoughtworks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Bitter:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wave-blue: #003D4F;
+            --flamingo-pink: #F2617A;
+            --jade-green: #4DB38D;
+            --neutral-bg: #F9F7F2;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--neutral-bg); color: #1A1A1A; }
+        h1, h2, h3 { font-family: 'Bitter', serif; }
+        .chart-container { position: relative; width: 100%; max-width: 700px; margin: auto; height: 450px; max-height: 500px; }
+        .tab-btn.active { border-color: var(--flamingo-pink); color: var(--flamingo-pink); background: white; }
+        .card { background: white; border-radius: 1.5rem; transition: all 0.3s ease; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .quadrant-label { font-size: 0.75rem; font-weight: bold; text-transform: uppercase; color: var(--wave-blue); opacity: 0.7; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+<!-- Chosen Palette: Thoughtworks Modern Professional (Wave Blue, Flamingo, Jade, Warm Neutrals) -->
+<!-- Application Structure Plan: 
+    A SPA foi desenhada para traduzir o conceito de "Holistic Testing" em uma experiência visual e tátil:
+    1. Hero: Define o conceito de Teste Holístico (Qualidade em todo o ciclo).
+    2. Agile Testing Quadrants (Interativo): Um gráfico de dispersão adaptado para mostrar os quatro quadrantes do teste ágil, permitindo ao usuário ver onde cada tipo de teste se encaixa.
+    3. SDLC Quality Journey: Uma linha do tempo interativa que mostra o papel do QA desde a Descoberta até a Operação.
+    4. Feedback Loops: Visualização da velocidade de feedback.
+    A estrutura prioriza a educação do usuário sobre por que o teste não é uma fase, mas uma atividade contínua.
+-->
+<!-- Visualization & Content Choices: 
+    - Scatter Chart (Chart.js) -> Representar os Quadrantes Ágeis -> Interaction: Tooltips explicativos -> Justification: Melhor forma de mostrar a tensão entre "Suporte ao Time" vs "Crítica ao Produto".
+    - Timeline Grid -> Representar o SDLC -> Interaction: Botões de fase -> Justification: Clarifica o conceito de "Shift-Left" e "Shift-Right".
+    - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+-->
+
+<div class="max-w-6xl mx-auto">
+    <header class="mb-16 text-center">
+        <div class="inline-block px-4 py-1 bg-[#F2617A]/10 text-[#F2617A] rounded-full text-sm font-bold mb-4">
+            ESTRATÉGIA DE QUALIDADE MODERNA
+        </div>
+        <h1 class="text-4xl md:text-6xl text-[#003D4F] mb-6">Holistic Testing & Kiro</h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            O teste não é mais uma fase no final do processo. É uma atividade contínua que envolve todo o time, desde a concepção da ideia até o monitoramento em produção.
+        </p>
+    </header>
+
+    <!-- SEÇÃO 1: QUADRANTES DO TESTE ÁGIL -->
+    <section class="mb-20">
+        <div class="grid md:grid-cols-3 gap-12 items-center">
+            <div class="md:col-span-1">
+                <h2 class="text-3xl text-[#003D4F] mb-6">Quadrantes de Teste Ágil</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    Esta seção ajuda a entender como balanceamos os diferentes tipos de testes. O Teste Holístico exige que olhemos para todos os quadrantes, não apenas para a automação funcional.
+                </p>
+                <div class="space-y-4">
+                    <div class="p-4 bg-white rounded-xl border-l-4 border-[#4DB38D] shadow-sm">
+                        <span class="font-bold text-[#003D4F]">Q1 & Q2: Suporte ao Time</span>
+                        <p class="text-sm text-gray-500">Focado em prevenir bugs e guiar o desenvolvimento (TDD, BDD).</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-xl border-l-4 border-[#F2617A] shadow-sm">
+                        <span class="font-bold text-[#003D4F]">Q3 & Q4: Crítica ao Produto</span>
+                        <p class="text-sm text-gray-500">Focado em descobrir problemas e validar performance/segurança.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-2 bg-white p-8 rounded-3xl shadow-lg relative">
+                <div class="absolute top-4 left-1/2 -translate-x-1/2 quadrant-label">Tecnologia (Interno)</div>
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 quadrant-label">Negócio (Externo)</div>
+                <div class="chart-container">
+                    <canvas id="quadrantsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2: A JORNADA DO QA HOLÍSTICO -->
+    <section class="mb-20">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl text-[#003D4F] mb-4">Qualidade em todo o SDLC</h2>
+            <p class="text-gray-600">Selecione uma fase para ver como o QA Lead atua usando o Kiro.</p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-2 mb-8">
+            <button onclick="updateSDLC('discovery')" class="tab-btn px-6 py-2 rounded-full border-2 border-gray-200 font-bold text-sm transition-all hover:border-[#F2617A]" id="btn-discovery">DESCOBERTA</button>
+            <button onclick="updateSDLC('dev')" class="tab-btn px-6 py-2 rounded-full border-2 border-gray-200 font-bold text-sm transition-all hover:border-[#F2617A]" id="btn-dev">DESENVOLVIMENTO</button>
+            <button onclick="updateSDLC('deploy')" class="tab-btn px-6 py-2 rounded-full border-2 border-gray-200 font-bold text-sm transition-all hover:border-[#F2617A]" id="btn-deploy">ENTREGA (CI/CD)</button>
+            <button onclick="updateSDLC('ops')" class="tab-btn px-6 py-2 rounded-full border-2 border-gray-200 font-bold text-sm transition-all hover:border-[#F2617A]" id="btn-ops">OPERAÇÕES</button>
+        </div>
+
+        <div id="sdlc-content" class="card p-8 md:p-12 shadow-sm border border-gray-100 min-h-[300px] flex flex-col md:flex-row gap-12 items-center">
+            <div class="flex-1">
+                <h3 id="sdlc-title" class="text-3xl text-[#003D4F] mb-4">Selecione uma fase</h3>
+                <p id="sdlc-description" class="text-gray-600 text-lg leading-relaxed mb-6">
+                    No Teste Holístico, o QA participa ativamente de todas as etapas, garantindo que a qualidade seja construída, não apenas verificada.
+                </p>
+                <div id="sdlc-kiro-use" class="bg-[#003D4F] text-white p-6 rounded-2xl">
+                    <span class="text-xs font-bold uppercase tracking-widest text-[#4DB38D]">Como usar o Kiro aqui</span>
+                    <p id="sdlc-kiro-text" class="mt-2 opacity-90">Aguardando seleção...</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/3 grid grid-cols-2 gap-4" id="sdlc-metrics">
+                <!-- Dynamic Content -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: FEEDBACK LOOPS -->
+    <section class="grid md:grid-cols-2 gap-8 mb-20">
+        <div class="card p-8 border border-gray-100">
+            <h3 class="text-2xl text-[#003D4F] mb-6">Loops de Feedback Contínuo</h3>
+            <p class="text-gray-600 mb-8">O objetivo do Teste Holístico é encurtar o tempo entre a criação de um bug e sua descoberta.</p>
+            <div class="space-y-6">
+                <div class="relative pt-1">
+                    <div class="flex mb-2 items-center justify-between">
+                        <div><span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-[#4DB38D] bg-green-100">Feedback Local (Kiro/Hooks)</span></div>
+                        <div class="text-right"><span class="text-xs font-semibold inline-block text-[#4DB38D]">Segundos</span></div>
+                    </div>
+                    <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-green-100"><div style="width:10%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-[#4DB38D]"></div></div>
+                </div>
+                <div class="relative pt-1">
+                    <div class="flex mb-2 items-center justify-between">
+                        <div><span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-100">Feedback de CI/CD</span></div>
+                        <div class="text-right"><span class="text-xs font-semibold inline-block text-blue-600">Minutos</span></div>
+                    </div>
+                    <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-100"><div style="width:45%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div></div>
+                </div>
+                <div class="relative pt-1">
+                    <div class="flex mb-2 items-center justify-between">
+                        <div><span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-red-600 bg-red-100">Feedback de Produção (Observabilidade)</span></div>
+                        <div class="text-right"><span class="text-xs font-semibold inline-block text-red-600">Horas/Dias</span></div>
+                    </div>
+                    <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-red-100"><div style="width:90%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"></div></div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col justify-center bg-[#003D4F] p-10 rounded-3xl text-white">
+            <h3 class="text-3xl mb-6">Mantra do QA Lead</h3>
+            <blockquote class="text-2xl italic font-light leading-relaxed">
+                "Qualidade não é o que fazemos depois que o código está pronto. É a forma como pensamos antes mesmo de escrever a primeira linha de especificação."
+            </blockquote>
+            <p class="mt-8 text-[#4DB38D] font-bold">— Princípio do Teste Holístico na Thoughtworks</p>
+        </div>
+    </section>
+</div>
+
+<footer class="text-center py-12 border-t border-gray-200">
+    <p class="text-gray-400 text-sm">Estratégia de Qualidade Holística &bull; Gerado para TDC Recife</p>
+</footer>
+
+<script>
+    // Configuração do Gráfico de Quadrantes
+    const ctx = document.getElementById('quadrantsChart').getContext('2d');
+    const quadrantsChart = new Chart(ctx, {
+        type: 'scatter',
+        data: {
+            datasets: [
+                {
+                    label: 'Suporte ao Time (Prevenção)',
+                    data: [
+                        {x: -7, y: 7, label: 'Testes Unitários'},
+                        {x: -5, y: 3, label: 'Component Testing'},
+                        {x: -3, y: 8, label: 'Pair Programming'},
+                        {x: 7, y: 7, label: 'Testes Funcionais'},
+                        {x: 4, y: 5, label: 'Story Blitz'},
+                        {x: 8, y: 3, label: 'Protótipos'}
+                    ],
+                    backgroundColor: '#4DB38D',
+                    pointRadius: 8
+                },
+                {
+                    label: 'Crítica ao Produto (Descoberta)',
+                    data: [
+                        {x: 7, y: -7, label: 'Exploratórios'},
+                        {x: 4, y: -4, label: 'UAT / Beta'},
+                        {x: 8, y: -8, label: 'Alpha Testing'},
+                        {x: -7, y: -7, label: 'Performance'},
+                        {x: -5, y: -3, label: 'Segurança'},
+                        {x: -3, y: -8, label: 'Carga/Stress'}
+                    ],
+                    backgroundColor: '#F2617A',
+                    pointRadius: 8
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            scales: {
+                x: { min: -10, max: 10, grid: { color: '#ddd' }, ticks: { display: false } },
+                y: { min: -10, max: 10, grid: { color: '#ddd' }, ticks: { display: false } }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: (ctx) => ctx.raw.label
+                    }
+                },
+                legend: { position: 'bottom' }
+            }
+        }
+    });
+
+    // Lógica da Linha do Tempo do SDLC
+    const sdlcData = {
+        discovery: {
+            title: "Fase de Descoberta",
+            desc: "O QA atua como um facilitador de qualidade. Ele questiona requisitos, identifica caminhos de erro antes do código existir e garante que os critérios de aceite (EARS) sejam testáveis.",
+            kiro: "Use o MCP Jira para ler os requisitos e o comando '/create-spec' para antecipar cenários de teste.",
+            metrics: ["Testabilidade", "Ambiguidade", "Cenários Borda"]
+        },
+        dev: {
+            title: "Desenvolvimento",
+            desc: "A qualidade é construída em par. O foco é em feedback rápido através de TDD e automação em camadas baixas (Unit/Integration). O time inteiro é dono da qualidade.",
+            kiro: "Agent Hooks rodam testes a cada save. Steering Files garantem que a IA escreva código seguindo os padrões do projeto.",
+            metrics: ["Cobertura", "Feedback Loop", "Clean Code"]
+        },
+        deploy: {
+            title: "Entrega e CI/CD",
+            desc: "Validamos a integridade do sistema como um todo. Contratos de API, testes de fumaça e segurança automatizada garantem um deploy sem medo.",
+            kiro: "Agent Skills de Segurança e Performance validam o código antes do Merge Request ser aprovado.",
+            metrics: ["Estabilidade", "Contratos", "Segurança"]
+        },
+        ops: {
+            title: "Operações (Monitoramento)",
+            desc: "Shift-Right! Testamos em produção usando Observabilidade. Analisamos logs, métricas e o comportamento real do usuário para retroalimentar o backlog.",
+            kiro: "Conecte o MCP Datadog para trazer logs de erro reais para dentro da IDE e corrigir bugs em minutos.",
+            metrics: ["MTTR", "Disponibilidade", "Feedback Real"]
+        }
+    };
+
+    function updateSDLC(phase) {
+        const data = sdlcData[phase];
+        document.getElementById('sdlc-title').innerText = data.title;
+        document.getElementById('sdlc-description').innerText = data.desc;
+        document.getElementById('sdlc-kiro-text').innerText = data.kiro;
+        
+        const metricsContainer = document.getElementById('sdlc-metrics');
+        metricsContainer.innerHTML = data.metrics.map(m => `
+            <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 text-center">
+                <span class="block text-xl font-bold text-[#F2617A]">${m}</span>
+            </div>
+        `).join('');
+
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(`btn-${phase}`).classList.add('active');
+    }
+
+    // Inicialização
+    updateSDLC('discovery');
+
+</script>
+
+</body>
+</html>
