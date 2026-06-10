@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploraKiro: Os 4 Pilares da IA para QA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Bitter:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tw-neutral: #F9F7F2;
+            --tw-wave: #003D4F;
+            --tw-pink: #F2617A;
+            --tw-yellow: #D99D3B;
+            --tw-green: #4DB38D;
+            --tw-purple: #7A61A0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--tw-neutral);
+            color: #1A1A1A;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3 {
+            font-family: 'Bitter', serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 61, 79, 0.1);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        .pillar-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pillar-active {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #003D4F; border-radius: 4px; }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Chosen Palette: Thoughtworks Harmony (Warm Neutrals, Wave Blue, Flamingo Pink, Turmeric, Jade) -->
+    <!-- Application Structure Plan: 
+        A estrutura foi desenhada como um "Manual de Onboarding Interativo". 
+        1. Hero: Introdução ao conceito do "Engenheiro Parceiro".
+        2. Navegação por Pilares: Seleção visual dos 4 pilares com feedback imediato de conteúdo (Analogia, O Que é, Importância).
+        3. Visualização de Impacto: Gráfico de radar comparando os pilares em dimensões de tempo e escopo.
+        4. Matriz Comparativa: Tabela dinâmica para síntese rápida.
+        Essa estrutura prioriza a aprendizagem não linear, permitindo que o usuário explore o que for mais relevante no momento da palestra ou estudo.
+    -->
+    <!-- Visualization & Content Choices: 
+        - Grid de Pilares -> Organizar -> Cards Interativos -> Clique para detalhar -> Facilita a absorção individual de cada conceito.
+        - Gráfico Radar (Chart.js) -> Comparar -> Radar de Atributos -> Visualização multidimensional -> Mostra como Steering é longo prazo enquanto Hooks são imediatos.
+        - Matriz de Dados -> Organizar -> Tabela HTML/Tailwind -> Referência rápida -> Ideal para o fechamento da explicação.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    -->
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 py-4 px-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <span class="text-2xl font-bold text-[#003D4F] tracking-tight">Kiro<span class="text-[#F2617A]">QA</span></span>
+            <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-[#003D4F]/70">
+                <a href="#pilares" class="hover:text-[#F2617A] transition-colors">Os Pilares</a>
+                <a href="#analise" class="hover:text-[#F2617A] transition-colors">Análise de IA</a>
+                <a href="#comparativo" class="hover:text-[#F2617A] transition-colors">Comparativo</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-20 pb-12 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl text-[#003D4F] mb-6 leading-tight">O Onboarding do seu novo "Engenheiro Parceiro"</h1>
+            <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                Imagine o Kiro como um engenheiro brilhante que acaba de entrar no seu time. Para ele ser ultraeficiente, ele precisa de contexto, plano, reflexos e treinamento.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        
+        <!-- SEÇÃO: OS PILARES -->
+        <section id="pilares" class="mb-24">
+            <div class="mb-12 border-l-4 border-[#F2617A] pl-6">
+                <h2 class="text-3xl text-[#003D4F] mb-2">Entendendo a Arquitetura</h2>
+                <p class="text-gray-500">Clique em cada pilar para explorar a analogia e os detalhes técnicos.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <button onclick="showPillar('steering')" id="btn-steering" class="pillar-btn p-6 rounded-2xl bg-white border-b-4 border-[#003D4F] text-center hover:bg-gray-50">
+                    <span class="text-4xl block mb-2">🧭</span>
+                    <span class="font-bold text-[#003D4F]">Agent Steering</span>
+                </button>
+                <button onclick="showPillar('specs')" id="btn-specs" class="pillar-btn p-6 rounded-2xl bg-white border-b-4 border-[#D99D3B] text-center hover:bg-gray-50">
+                    <span class="text-4xl block mb-2">📐</span>
+                    <span class="font-bold text-[#003D4F]">Specs</span>
+                </button>
+                <button onclick="showPillar('hooks')" id="btn-hooks" class="pillar-btn p-6 rounded-2xl bg-white border-b-4 border-[#F2617A] text-center hover:bg-gray-50">
+                    <span class="text-4xl block mb-2">🪝</span>
+                    <span class="font-bold text-[#003D4F]">Agent Hooks</span>
+                </button>
+                <button onclick="showPillar('skills')" id="btn-skills" class="pillar-btn p-6 rounded-2xl bg-white border-b-4 border-[#4DB38D] text-center hover:bg-gray-50">
+                    <span class="text-4xl block mb-2">⚡</span>
+                    <span class="font-bold text-[#003D4F]">Agent Skills</span>
+                </button>
+            </div>
+
+            <div id="pillar-content-area" class="glass-card rounded-3xl p-8 md:p-12 shadow-sm min-h-[400px]">
+                <!-- Conteúdo Dinâmico via JS -->
+                <div id="content-placeholder" class="text-center py-20">
+                    <p class="text-gray-400 italic">Selecione um pilar acima para ver os detalhes...</p>
+                </div>
+
+                <div id="content-steering" class="tab-content">
+                    <div class="flex flex-col md:flex-row gap-12 items-start">
+                        <div class="flex-1">
+                            <span class="inline-block px-3 py-1 bg-[#003D4F] text-white text-xs font-bold rounded-full mb-4 uppercase tracking-wider">Cérebro de Longo Prazo</span>
+                            <h3 class="text-4xl text-[#003D4F] mb-6">Agent Steering</h3>
+                            <div class="space-y-6 text-gray-700 leading-relaxed">
+                                <p class="text-lg font-semibold italic text-[#003D4F]">A Analogia: O Manual de Onboarding</p>
+                                <p>É o documento que você entrega no primeiro dia: "Aqui usamos Node.js, nossa arquitetura é X e seguimos o padrão EARS".</p>
+                                <div class="bg-[#003D4F]/5 p-4 rounded-lg border-l-4 border-[#003D4F]">
+                                    <p class="text-sm font-mono">Arquivos: .kiro/steering/product.md, tech.md</p>
+                                </div>
+                                <p><strong>Por que importa:</strong> Sem ele, a IA tem amnésia. Com ele, o Kiro tem memória permanente das suas regras de negócio e cultura de engenharia.</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/3 bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                            <h4 class="font-bold mb-4 text-[#003D4F]">Configurações Globais:</h4>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex items-center gap-2">✓ Regras de Linguagem</li>
+                                <li class="flex items-center gap-2">✓ Padrões de Projeto</li>
+                                <li class="flex items-center gap-2">✓ Contexto de Negócio</li>
+                                <li class="flex items-center gap-2">✓ Estrutura de Pastas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="content-specs" class="tab-content">
+                    <div class="flex flex-col md:flex-row gap-12 items-start">
+                        <div class="flex-1">
+                            <span class="inline-block px-3 py-1 bg-[#D99D3B] text-white text-xs font-bold rounded-full mb-4 uppercase tracking-wider">Estratégia de Execução</span>
+                            <h3 class="text-4xl text-[#003D4F] mb-6">Specs</h3>
+                            <div class="space-y-6 text-gray-700 leading-relaxed">
+                                <p class="text-lg font-semibold italic text-[#D99D3B]">A Analogia: O Plano de Voo da Sprint</p>
+                                <p>É a sessão de refinamento (Planning). Antes de codar, o engenheiro desenha os critérios de aceitação e a lista de tarefas.</p>
+                                <div class="bg-[#D99D3B]/5 p-4 rounded-lg border-l-4 border-[#D99D3B]">
+                                    <p class="text-sm font-mono">Fluxo: requirements.md ➔ design.md ➔ tasks.md</p>
+                                </div>
+                                <p><strong>Por que importa:</strong> Evita o "código solto". O Kiro planeja sistematicamente e executa via subagentes focados em tarefas reais.</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/3 bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                            <h4 class="font-bold mb-4 text-[#D99D3B]">Passo a Passo:</h4>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex items-center gap-2">1. Definir Requisitos</li>
+                                <li class="flex items-center gap-2">2. Desenhar Arquitetura</li>
+                                <li class="flex items-center gap-2">3. Listar Tasks de Código</li>
+                                <li class="flex items-center gap-2">4. Execução Assistida</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="content-hooks" class="tab-content">
+                    <div class="flex flex-col md:flex-row gap-12 items-start">
+                        <div class="flex-1">
+                            <span class="inline-block px-3 py-1 bg-[#F2617A] text-white text-xs font-bold rounded-full mb-4 uppercase tracking-wider">Automação Reativa</span>
+                            <h3 class="text-4xl text-[#003D4F] mb-6">Agent Hooks</h3>
+                            <div class="space-y-6 text-gray-700 leading-relaxed">
+                                <p class="text-lg font-semibold italic text-[#F2617A]">A Analogia: Os Reflexos Automáticos</p>
+                                <p>Sempre que o engenheiro salva um arquivo (Ctrl+S), ele roda o linter ou os testes unitários por puro hábito e reflexo.</p>
+                                <div class="bg-[#F2617A]/5 p-4 rounded-lg border-l-4 border-[#F2617A]">
+                                    <p class="text-sm font-mono">Configuração: JSON / Gatilhos na IDE</p>
+                                </div>
+                                <p><strong>Por que importa:</strong> Previne bugs bobos e traz agilidade extrema. A IDE reage ao seu comportamento e valida o código no mesmo segundo.</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/3 bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                            <h4 class="font-bold mb-4 text-[#F2617A]">Gatilhos Comuns:</h4>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex items-center gap-2">⚡ Salvar Arquivo</li>
+                                <li class="flex items-center gap-2">⚡ Criar Nova Classe</li>
+                                <li class="flex items-center gap-2">⚡ Antes do Commit</li>
+                                <li class="flex items-center gap-2">⚡ Abrir a IDE</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="content-skills" class="tab-content">
+                    <div class="flex flex-col md:flex-row gap-12 items-start">
+                        <div class="flex-1">
+                            <span class="inline-block px-3 py-1 bg-[#4DB38D] text-white text-xs font-bold rounded-full mb-4 uppercase tracking-wider">Treinamento de Elite</span>
+                            <h3 class="text-4xl text-[#003D4F] mb-6">Agent Skills</h3>
+                            <div class="space-y-6 text-gray-700 leading-relaxed">
+                                <p class="text-lg font-semibold italic text-[#4DB38D]">A Analogia: As Certificações Especialistas</p>
+                                <p>É quando você diz: "Agora precisamos auditar a segurança". O engenheiro ativa o modo especialista com checklists de OWASP e performance.</p>
+                                <div class="bg-[#4DB38D]/5 p-4 rounded-lg border-l-4 border-[#4DB38D]">
+                                    <p class="text-sm font-mono">Comando: Ativado sob demanda</p>
+                                </div>
+                                <p><strong>Por que importa:</strong> Permite versatilidade. O Kiro vira um especialista em segurança, performance ou refatoração no momento exato da solicitação.</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/3 bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                            <h4 class="font-bold mb-4 text-[#4DB38D]">Skills de Sucesso:</h4>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex items-center gap-2">★ Refatoração Avançada</li>
+                                <li class="flex items-center gap-2">★ Segurança (OWASP)</li>
+                                <li class="flex items-center gap-2">★ Testes de Carga</li>
+                                <li class="flex items-center gap-2">★ Acessibilidade (WCAG)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO: ANÁLISE DE CAPACIDADE -->
+        <section id="analise" class="mb-24">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="mb-8 border-l-4 border-[#D99D3B] pl-6">
+                        <h2 class="text-3xl text-[#003D4F] mb-4">Análise de Domínio da IA</h2>
+                        <p class="text-gray-600 leading-relaxed">
+                            Esta visualização de radar demonstra o equilíbrio estratégico entre os pilares. Enquanto o <strong>Steering</strong> domina o contexto de longo prazo, os <strong>Hooks</strong> focam na velocidade de execução imediata. As <strong>Skills</strong> e <strong>Specs</strong> equilibram a balança entre planejamento estruturado e especialização técnica.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="font-semibold">Contexto Permanente</span>
+                            <span class="text-[#003D4F] font-bold">Steering</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-[#003D4F] h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="font-semibold">Velocidade de Feedback</span>
+                            <span class="text-[#F2617A] font-bold">Hooks</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-[#F2617A] h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-xl border border-gray-100">
+                    <div class="chart-container">
+                        <canvas id="kiroRadarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: TABELA COMPARATIVA -->
+        <section id="comparativo">
+            <div class="mb-12 border-l-4 border-[#4DB38D] pl-6">
+                <h2 class="text-3xl text-[#003D4F] mb-2">Matriz de Decisão do QA</h2>
+                <p class="text-gray-500">Compare quando e como usar cada recurso no seu fluxo diário.</p>
+            </div>
+
+            <div class="overflow-hidden rounded-3xl border border-gray-200 shadow-sm bg-white">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-[#003D4F] text-white">
+                        <tr>
+                            <th class="p-5 font-semibold">Recurso</th>
+                            <th class="p-5 font-semibold">O que define?</th>
+                            <th class="p-5 font-semibold">Momento de Ação</th>
+                            <th class="p-5 font-semibold">Foco Principal</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 divide-y divide-gray-100">
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="p-5 font-bold text-[#003D4F]">Steering</td>
+                            <td class="p-5">Cultura e regras globais do projeto</td>
+                            <td class="p-5 italic">Sempre (Background)</td>
+                            <td class="p-5">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold">Consistência</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="p-5 font-bold text-[#D99D3B]">Specs</td>
+                            <td class="p-5">Plano técnico e tarefas sequenciais</td>
+                            <td class="p-5 italic">Início da Funcionalidade</td>
+                            <td class="p-5">
+                                <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-bold">Planejamento</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="p-5 font-bold text-[#F2617A]">Hooks</td>
+                            <td class="p-5">Automações reativas via JSON</td>
+                            <td class="p-5 italic">Durante a Edição (IDE)</td>
+                            <td class="p-5">
+                                <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-bold">Feedback Rápido</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="p-5 font-bold text-[#4DB38D]">Skills</td>
+                            <td class="p-5">Especializações de elite</td>
+                            <td class="p-5 italic">Sob Demanda (Prompt)</td>
+                            <td class="p-5">
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">Qualidade Técnica</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#003D4F] text-white py-12 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-8 md:mb-0">
+                <span class="text-3xl font-bold tracking-tight">Kiro<span class="text-[#F2617A]">QA</span></span>
+                <p class="mt-2 text-gray-400">Transformando o trabalho de QA com IA Contextual.</p>
+            </div>
+            <div class="text-right text-sm text-gray-400">
+                <p>Criado para a palestra TDC Recife</p>
+                <p>© 2024 Guia de Conceitos Kiro</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Inicialização do Gráfico de Radar
+        const ctx = document.getElementById('kiroRadarChart').getContext('2d');
+        const radarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Longo Prazo', 'Execução Imediata', 'Especialização', 'Estrutura', 'Consistência', 'Automação'],
+                datasets: [
+                    {
+                        label: 'Steering',
+                        data: [100, 20, 40, 70, 100, 30],
+                        backgroundColor: 'rgba(0, 61, 79, 0.2)',
+                        borderColor: '#003D4F',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Hooks',
+                        data: [20, 100, 30, 20, 40, 100],
+                        backgroundColor: 'rgba(242, 97, 122, 0.2)',
+                        borderColor: '#F2617A',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Skills',
+                        data: [50, 40, 100, 50, 60, 50],
+                        backgroundColor: 'rgba(77, 179, 141, 0.2)',
+                        borderColor: '#4DB38D',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { display: false },
+                        grid: { color: 'rgba(0,0,0,0.05)' }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { boxWidth: 12, padding: 20, font: { family: 'Inter', size: 11 } }
+                    }
+                }
+            }
+        });
+
+        // Lógica de Navegação entre Pilares
+        function showPillar(pillarId) {
+            // Esconde placeholder
+            document.getElementById('content-placeholder').style.display = 'none';
+            
+            // Remove active classes de todos os botões e conteúdos
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.pillar-btn').forEach(el => el.classList.remove('pillar-active', 'bg-[#003D4F]/5'));
+            
+            // Ativa o selecionado
+            document.getElementById(`content-${pillarId}`).classList.add('active');
+            document.getElementById(`btn-${pillarId}`).classList.add('pillar-active', 'bg-[#003D4F]/5');
+
+            // Scroll suave para o conteúdo
+            const contentArea = document.getElementById('pillar-content-area');
+            window.scrollTo({
+                top: contentArea.offsetTop - 120,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
