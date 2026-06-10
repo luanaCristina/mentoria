@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploraKiro: Os 4 Pilares da IA para QA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Bitter:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tw-neutral: #F9F7F2;
+            --tw-wave: #003D4F;
+            --tw-pink: #F2617A;
+            --tw-yellow: #D99D3B;
+            --tw-green: #4DB38D;
+            --tw-purple: #7A61A0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--tw-neutral);
+            color: #1A1A1A;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3 {
+            font-family: 'Bitter', serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 61, 79, 0.1);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        .pillar-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pillar-active {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #003D4F; border-radius: 4px; }
+        .command-box {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            border-left: 4px solid var(--tw-green);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Chosen Palette: Thoughtworks Harmony (Warm Neutrals, Wave Blue, Flamingo Pink, Turmeric, Jade) -->
+    <!-- Application Structure Plan: 
+        A estrutura foi atualizada para focar na usabilidade das "Agent Skills".
+        1. Hero: Mantém a analogia do engenheiro parceiro.
+        2. Navegação por Pilares: Agora inclui guias de "Como Usar" e exemplos de comandos reais para as Skills.
+        3. Visualização de Impacto: Gráfico radar atualizado.
+        4. Tabela Comparativa: Resumo final.
+        O objetivo é que o usuário não apenas entenda o conceito, mas saiba exatamente o que digitar na IDE para ativar o poder da IA.
+    -->
+    <!-- Visualization & Content Choices: 
+        - Blocos de Comando -> Informar -> Estilo terminal -> Mostra a sintaxe real -> Facilita a aplicação prática.
+        - Cards de Exemplo -> Comparar -> Grid de 2 colunas -> Diferencia Skills de Segurança vs Performance -> Melhora a escolha do usuário.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    -->
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 py-4 px-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <span class="text-2xl font-bold text-[#003D4F] tracking-tight">Kiro<span class="text-[#F2617A]">QA</span></span>
+            <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-[#003D4F]/70">
+                <a href="#pilares" class="hover:text-[#F2617A] transition-colors">Os Pilares</a>
+                <a href="#analise" class="hover:text-[#F2617A] transition-colors">Análise de IA</a>
+                <a href="#comparativo" class="hover:text-[#F2617A] transition-colors">Comparativo</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-20 pb-12 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl text-[#003D4F] mb-6 leading-tight">Como dominar as Agent Skills no Kiro</h1>
+            <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                As Skills são superpoderes "on-demand". Aprenda a invocá-las para transformar o Kiro em um especialista de elite no momento certo.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        
+        <!-- SEÇÃO: OS PILARES -->
+        <section id="pilares" class="mb-24">
+            <div class="mb-12 border-l-4 border-[#F2617A] pl-6">
+                <h2 class="text-3xl text-[#003D4F] mb-2">Arquitetura de Atuação</h2>
+                <p class="text-gray-500">Selecione o pilar para ver o guia de uso prático.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <button onclick="showPillar('steering')" id="btn-steering" class="pillar-btn p-6 rounded-2xl bg-white border-b-4 border-[#003D4F] text-center hover:bg-gray-50">
+                    <span class="text-4xl block mb-2">🧭</span>
+                    <span class="font-bold text-[#003D4F]">Agent Steering</span>
+                </button>
+                <button onclick="showPillar('specs')" id="btn-specs" class="pillar-btn p-6 rounded-2xl bg-white border-b-4 border-[#D99D3B] text-center hover:bg-gray-50">
+                    <span class="text-4xl block mb-2">📐</span>
+                    <span class="font-bold text-[#003D4F]">Specs</span>
+                </button>
+                <button onclick="showPillar('hooks')" id="btn-hooks" class="pillar-btn p-6 rounded-2xl bg-white border-b-4 border-[#F2617A] text-center hover:bg-gray-50">
+                    <span class="text-4xl block mb-2">🪝</span>
+                    <span class="font-bold text-[#003D4F]">Agent Hooks</span>
+                </button>
+                <button onclick="showPillar('skills')" id="btn-skills" class="pillar-btn p-6 rounded-2xl bg-white border-b-4 border-[#4DB38D] text-center hover:bg-gray-50">
+                    <span class="text-4xl block mb-2">⚡</span>
+                    <span class="font-bold text-[#003D4F]">Agent Skills</span>
+                </button>
+            </div>
+
+            <div id="pillar-content-area" class="glass-card rounded-3xl p-8 md:p-12 shadow-sm min-h-[500px]">
+                <div id="content-placeholder" class="text-center py-20">
+                    <p class="text-gray-400 italic">Selecione um pilar acima para ver os detalhes e comandos...</p>
+                </div>
+
+                <!-- STEERING CONTENT (RESUMIDO) -->
+                <div id="content-steering" class="tab-content">
+                    <div class="flex flex-col md:flex-row gap-12 items-start">
+                        <div class="flex-1">
+                            <span class="inline-block px-3 py-1 bg-[#003D4F] text-white text-xs font-bold rounded-full mb-4 uppercase tracking-wider">Cérebro de Longo Prazo</span>
+                            <h3 class="text-4xl text-[#003D4F] mb-6">Agent Steering</h3>
+                            <p class="mb-4"><strong>Como configurar:</strong> Crie a pasta `.kiro/steering` na raiz e adicione arquivos `.md` com o contexto.</p>
+                            <div class="command-box mb-6">
+                                # No arquivo .kiro/steering/tech.md<br>
+                                "Sempre use Playwright com TypeScript e siga o padrão Page Object."
+                            </div>
+                            <p class="text-gray-600 italic">Uma vez salvo, o Kiro lerá isso em todas as conversas sem você precisar repetir.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SPECS CONTENT (RESUMIDO) -->
+                <div id="content-specs" class="tab-content">
+                    <div class="flex flex-col md:flex-row gap-12 items-start">
+                        <div class="flex-1">
+                            <span class="inline-block px-3 py-1 bg-[#D99D3B] text-white text-xs font-bold rounded-full mb-4 uppercase tracking-wider">Estratégia</span>
+                            <h3 class="text-4xl text-[#003D4F] mb-6">Specs</h3>
+                            <p class="mb-4"><strong>Como usar:</strong> No chat do Kiro, peça para ele criar uma spec baseada em um requisito.</p>
+                            <div class="command-box mb-6">
+                                /create-spec baseada no Jira card #123
+                            </div>
+                            <p class="text-gray-600">O Kiro gerará o `requirements.md` e o `design.md` antes de codar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HOOKS CONTENT (RESUMIDO) -->
+                <div id="content-hooks" class="tab-content">
+                    <div class="flex flex-col md:flex-row gap-12 items-start">
+                        <div class="flex-1">
+                            <span class="inline-block px-3 py-1 bg-[#F2617A] text-white text-xs font-bold rounded-full mb-4 uppercase tracking-wider">Reflexos</span>
+                            <h3 class="text-4xl text-[#003D4F] mb-6">Agent Hooks</h3>
+                            <p class="mb-4"><strong>Como ativar:</strong> Configure no arquivo `kiro.json` os eventos de gatilho.</p>
+                            <div class="command-box mb-6">
+                                "onSave": "npm test current_file"
+                            </div>
+                            <p class="text-gray-600 italic">O Kiro executará a ação toda vez que o gatilho (ex: salvar) for detectado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SKILLS CONTENT (DETALHADO) -->
+                <div id="content-skills" class="tab-content">
+                    <div class="flex flex-col md:flex-row gap-12 items-start">
+                        <div class="flex-1">
+                            <span class="inline-block px-3 py-1 bg-[#4DB38D] text-white text-xs font-bold rounded-full mb-4 uppercase tracking-wider">Treinamento de Elite</span>
+                            <h3 class="text-4xl text-[#003D4F] mb-6">Agent Skills</h3>
+                            
+                            <div class="space-y-8">
+                                <div class="bg-green-50 p-6 rounded-xl border border-green-100">
+                                    <h4 class="font-bold text-[#003D4F] mb-2 flex items-center gap-2">
+                                        <span class="text-xl">🛠️</span> Como usar na prática?
+                                    </h4>
+                                    <p class="text-gray-700 mb-4">Diferente do Steering (que é passivo), as Skills são <strong>ativadas por comando</strong> ou <strong>mencionadas no prompt</strong>.</p>
+                                    
+                                    <h5 class="text-sm font-bold uppercase text-green-700 mt-4 mb-2 tracking-widest">Opção A: Menção no Prompt</h5>
+                                    <div class="command-box mb-4">
+                                        "Kiro, revise este teste usando sua <b>skill de segurança OWASP</b>."
+                                    </div>
+
+                                    <h5 class="text-sm font-bold uppercase text-green-700 mt-4 mb-2 tracking-widest">Opção B: Comandos Rápidos (/)</h5>
+                                    <div class="command-box mb-4">
+                                        /refactor --skill=clean-code
+                                    </div>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="border p-4 rounded-lg bg-white">
+                                        <p class="font-bold text-[#003D4F]">Exemplo 1: Performance</p>
+                                        <p class="text-sm text-gray-500 mb-3">Ativa análise de tempo de resposta e carga.</p>
+                                        <code class="text-xs text-pink-600 bg-pink-50 p-1 rounded">/skill performance_test</code>
+                                    </div>
+                                    <div class="border p-4 rounded-lg bg-white">
+                                        <p class="font-bold text-[#003D4F]">Exemplo 2: Acessibilidade</p>
+                                        <p class="text-sm text-gray-500 mb-3">Verifica padrões WCAG no seu front-end.</p>
+                                        <code class="text-xs text-green-600 bg-green-50 p-1 rounded">/skill a11y_audit</code>
+                                    </div>
+                                </div>
+
+                                <p class="text-gray-700 leading-relaxed">
+                                    <strong>Por que importa:</strong> Quando você ativa uma Skill, o Kiro carrega um "checklist mental" muito mais profundo do que o normal, garantindo que a qualidade técnica seja de nível especialista e não apenas um código funcional.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/3 space-y-4">
+                            <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                                <h4 class="font-bold mb-4 text-[#003D4F]">Onde ficam as Skills?</h4>
+                                <ul class="space-y-3 text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <span>📍</span>
+                                        <span><b>Nativas:</b> Já vêm no Kiro (Refactor, Doc, Unit Test).</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span>📍</span>
+                                        <span><b>Custom:</b> Você define em arquivos `.kiro/skills/*.md`.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-[#003D4F] text-white p-6 rounded-xl">
+                                <p class="text-xs font-bold uppercase mb-2">Dica de Pro</p>
+                                <p class="text-sm opacity-90">Combine Skills! Peça ao Kiro para rodar a Skill de Segurança <i>durante</i> a execução de uma Spec.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO: ANÁLISE DE CAPACIDADE -->
+        <section id="analise" class="mb-24">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="mb-8 border-l-4 border-[#D99D3B] pl-6">
+                        <h2 class="text-3xl text-[#003D4F] mb-4">Análise de Domínio da IA</h2>
+                        <p class="text-gray-600 leading-relaxed">
+                            Observe que as <strong>Agent Skills</strong> possuem o maior nível de "Especialização". Enquanto o Steering provê a base (Consistência), as Skills são o topo da pirâmide de qualidade técnica.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-xl border border-gray-100">
+                    <div class="chart-container">
+                        <canvas id="kiroRadarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: TABELA COMPARATIVA -->
+        <section id="comparativo">
+            <div class="mb-12 border-l-4 border-[#4DB38D] pl-6">
+                <h2 class="text-3xl text-[#003D4F] mb-2">Matriz de Decisão do QA</h2>
+                <p class="text-gray-500">Resumo de quando chamar o "especialista".</p>
+            </div>
+
+            <div class="overflow-hidden rounded-3xl border border-gray-200 shadow-sm bg-white">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-[#003D4F] text-white">
+                        <tr>
+                            <th class="p-5 font-semibold">Recurso</th>
+                            <th class="p-5 font-semibold">Como Ativar?</th>
+                            <th class="p-5 font-semibold">Momento de Ação</th>
+                            <th class="p-5 font-semibold">Foco Principal</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 divide-y divide-gray-100">
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="p-5 font-bold text-[#003D4F]">Steering</td>
+                            <td class="p-5">Arquivos .md em .kiro/</td>
+                            <td class="p-5 italic">Sempre On</td>
+                            <td class="p-5"><span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold">Base</span></td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="p-5 font-bold text-[#4DB38D]">Skills</td>
+                            <td class="p-5">Comandos / ou Prompts</td>
+                            <td class="p-5 italic">Sob Demanda</td>
+                            <td class="p-5"><span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">Especialização</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#003D4F] text-white py-12 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-8 md:mb-0">
+                <span class="text-3xl font-bold tracking-tight">Kiro<span class="text-[#F2617A]">QA</span></span>
+                <p class="mt-2 text-gray-400">Transformando o trabalho de QA com IA Contextual.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('kiroRadarChart').getContext('2d');
+        const radarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Longo Prazo', 'Execução Imediata', 'Especialização', 'Estrutura', 'Consistência', 'Automação'],
+                datasets: [
+                    {
+                        label: 'Steering',
+                        data: [100, 20, 40, 70, 100, 30],
+                        backgroundColor: 'rgba(0, 61, 79, 0.2)',
+                        borderColor: '#003D4F',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Skills',
+                        data: [50, 40, 100, 50, 60, 50],
+                        backgroundColor: 'rgba(77, 179, 141, 0.2)',
+                        borderColor: '#4DB38D',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { display: false },
+                        grid: { color: 'rgba(0,0,0,0.05)' }
+                    }
+                }
+            }
+        });
+
+        function showPillar(pillarId) {
+            document.getElementById('content-placeholder').style.display = 'none';
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.pillar-btn').forEach(el => el.classList.remove('pillar-active', 'bg-[#003D4F]/5'));
+            
+            document.getElementById(`content-${pillarId}`).classList.add('active');
+            document.getElementById(`btn-${pillarId}`).classList.add('pillar-active', 'bg-[#003D4F]/5');
+
+            const contentArea = document.getElementById('pillar-content-area');
+            window.scrollTo({
+                top: contentArea.offsetTop - 120,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
