@@ -570,8 +570,10 @@
             let chatHistory = [];
             chatHistory.push({ role: "user", parts: [{ text: prompt }] });
             const payload = { contents: chatHistory };
-            const apiKey = ""; // INSIRA SUA API KEY AQUI (ver README para opcoes seguras)
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            // API Key protegida via Cloudflare Worker (ver cloudflare-worker/GUIA-CONFIGURACAO.md)
+            const apiKey = ""; // Não precisa preencher se usar o Worker
+            // SUBSTITUA pela URL do seu Cloudflare Worker (ex: https://gemini-proxy-mentoria.seu-usuario.workers.dev)
+            const apiUrl = apiKey ? `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}` : "COLE_A_URL_DO_SEU_WORKER_AQUI";
 
             try {
                 const response = await fetch(apiUrl, {
