@@ -570,10 +570,27 @@
             let chatHistory = [];
             chatHistory.push({ role: "user", parts: [{ text: prompt }] });
             const payload = { contents: chatHistory };
-            // API Key protegida via Cloudflare Worker (ver cloudflare-worker/GUIA-CONFIGURACAO.md)
-            const apiKey = ""; // Não precisa preencher se usar o Worker
-            // SUBSTITUA pela URL do seu Cloudflare Worker (ex: https://gemini-proxy-mentoria.seu-usuario.workers.dev)
-            const apiUrl = apiKey ? `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}` : "https://gemini-proxy.luacroftprofessora.workers.dev";
+
+            // ═══════════════════════════════════════════════════════════════
+            // CONFIGURACAO DA API - Escolha UMA das opcoes abaixo:
+            // ═══════════════════════════════════════════════════════════════
+            //
+            // OPCAO 1: Usar o Cloudflare Worker (recomendado para producao)
+            // A chave fica protegida no servidor. Ninguem ve no codigo.
+            // Deixe apiKey vazia e configure workerUrl com sua URL do Worker.
+            //
+            // OPCAO 2: Usar a API diretamente (para uso local/desenvolvimento)
+            // Cole sua chave do Google AI Studio direto aqui.
+            // Gere sua chave em: https://aistudio.google.com/apikey
+            // ═══════════════════════════════════════════════════════════════
+
+            const apiKey = ""; // OPCAO 2: Cole sua API Key aqui para uso local
+            const workerUrl = "https://gemini-proxy.luacroftprofessora.workers.dev"; // OPCAO 1: URL do Worker
+
+            // Logica: se tem apiKey, usa direto. Se nao, usa o Worker.
+            const apiUrl = apiKey
+              ? `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`
+              : workerUrl;
 
             try {
                 const response = await fetch(apiUrl, {
