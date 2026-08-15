@@ -589,7 +589,7 @@
 
             // Logica: se tem apiKey, usa direto. Se nao, usa o Worker.
             const apiUrl = apiKey
-              ? `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`
+              ? `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`
               : workerUrl;
 
             try {

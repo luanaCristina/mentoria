@@ -81,7 +81,7 @@ No `index.html` do repositório da mentoria, na linha 572-573, substitua:
 **Antes:**
 ```javascript
 const apiKey = ""; // INSIRA SUA API KEY AQUI
-const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`;
+const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`;
 ```
 
 **Depois:**
