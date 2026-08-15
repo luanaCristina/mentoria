@@ -564,33 +564,33 @@
             const outputElement = document.getElementById(outputElementId);
             const spinnerElement = document.getElementById(spinnerElementId);
 
-            outputElement.innerHTML = ''; // Limpa o output anterior
-            spinnerElement.classList.remove('hidden'); // Mostra o spinner
+            outputElement.innerHTML = '';
+            spinnerElement.classList.remove('hidden');
 
-            let chatHistory = [];
-            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-            const payload = { contents: chatHistory };
+            // ═══════════════════════════════════════════════════════
+            // CONFIGURACAO DA API - Escolha UMA das opcoes:
+            // ═══════════════════════════════════════════════════════
+            // OPCAO 1: Cloudflare Worker (seguro para producao)
+            //   Deixe apiKey vazia e use workerUrl.
+            // OPCAO 2: API direto (para uso local)
+            //   Cole sua chave em apiKey.
+            //   Gere em: https://aistudio.google.com/apikey
+            // ═══════════════════════════════════════════════════════
 
-            // ═══════════════════════════════════════════════════════════════
-            // CONFIGURACAO DA API - Escolha UMA das opcoes abaixo:
-            // ═══════════════════════════════════════════════════════════════
-            //
-            // OPCAO 1: Usar o Cloudflare Worker (recomendado para producao)
-            // A chave fica protegida no servidor. Ninguem ve no codigo.
-            // Deixe apiKey vazia e configure workerUrl com sua URL do Worker.
-            //
-            // OPCAO 2: Usar a API diretamente (para uso local/desenvolvimento)
-            // Cole sua chave do Google AI Studio direto aqui.
-            // Gere sua chave em: https://aistudio.google.com/apikey
-            // ═══════════════════════════════════════════════════════════════
+            const apiKey = ""; // OPCAO 2: Cole sua API Key aqui
+            const workerUrl = "https://gemini-proxy.luacroftprofessora.workers.dev";
 
-            const apiKey = ""; // OPCAO 2: Cole sua API Key aqui para uso local
-            const workerUrl = "https://gemini-proxy.luacroftprofessora.workers.dev"; // OPCAO 1: URL do Worker
-
-            // Logica: se tem apiKey, usa direto. Se nao, usa o Worker.
+            // Novo formato: Interactions API (gemini-3.5-flash-lite)
+            const model = "gemini-3.5-flash-lite";
+            const baseUrl = "https://generativelanguage.googleapis.com/v1beta";
             const apiUrl = apiKey
-              ? `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`
+              ? `${baseUrl}/models/${model}:generateContent?key=${apiKey}`
               : workerUrl;
+
+            // Payload no formato generateContent (compativel com Worker e direto)
+            const payload = {
+              contents: [{ role: "user", parts: [{ text: prompt }] }]
+            };
 
             try {
                 const response = await fetch(apiUrl, {
@@ -599,27 +599,26 @@
                     body: JSON.stringify(payload)
                 });
 
-                if (!response.ok) { // Verifica se a resposta HTTP foi bem-sucedida
-                    const errorData = await response.json();
-                    throw new Error(`Erro na API: ${response.status} - ${errorData.error.message || 'Erro desconhecido'}`);
-                }
-
                 const result = await response.json();
 
+                if (!response.ok) {
+                    const errMsg = result.error ? result.error.message : 'Erro desconhecido';
+                    throw new Error(`Erro na API: ${response.status} - ${errMsg}`);
+                }
+
+                // Extrair texto da resposta (formato generateContent)
                 if (result.candidates && result.candidates.length > 0 &&
                     result.candidates[0].content && result.candidates[0].content.parts &&
                     result.candidates[0].content.parts.length > 0) {
-                    const text = result.candidates[0].content.parts[0].text;
-                    outputElement.innerText = text; // Exibe a resposta do LLM
+                    outputElement.innerText = result.candidates[0].content.parts[0].text;
                 } else {
-                    outputElement.innerText = 'Erro: A API retornou uma resposta vazia ou inesperada. Tente novamente com uma pergunta diferente.';
-                    console.error('Estrutura de resposta inesperada:', result);
+                    outputElement.innerText = 'A IA retornou uma resposta vazia. Tente reformular sua pergunta.';
                 }
             } catch (error) {
-                outputElement.innerText = `Erro: ${error.message}. Por favor, tente novamente.`;
-                console.error('Erro na chamada da API Gemini:', error);
+                outputElement.innerText = `Erro: ${error.message}. Tente novamente.`;
+                console.error('Erro Gemini:', error);
             } finally {
-                spinnerElement.classList.add('hidden'); // Esconde o spinner
+                spinnerElement.classList.add('hidden');
             }
         }
 
