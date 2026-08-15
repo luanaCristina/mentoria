@@ -573,7 +573,7 @@
             // API Key protegida via Cloudflare Worker (ver cloudflare-worker/GUIA-CONFIGURACAO.md)
             const apiKey = ""; // Não precisa preencher se usar o Worker
             // SUBSTITUA pela URL do seu Cloudflare Worker (ex: https://gemini-proxy-mentoria.seu-usuario.workers.dev)
-            const apiUrl = apiKey ? `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}` : "https://gemini-proxy.luacroftprofessora.workers.dev";
+            const apiUrl = apiKey ? `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}` : "https://gemini-proxy.luacroftprofessora.workers.dev";
 
             try {
                 const response = await fetch(apiUrl, {
