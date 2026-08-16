@@ -143,11 +143,181 @@
             </div>
         </div>
         <div class="flex flex-col justify-center bg-[#003D4F] p-10 rounded-3xl text-white">
-            <h3 class="text-3xl mb-6">Mantra do QA Lead</h3>
+            <h3 class="text-3xl mb-6">Filosofia de Qualidade</h3>
             <blockquote class="text-2xl italic font-light leading-relaxed">
-                "Qualidade não é o que fazemos depois que o código está pronto. É a forma como pensamos antes mesmo de escrever a primeira linha de especificação."
+                "Quality is everyone's responsibility."
             </blockquote>
-            <p class="mt-8 text-[#4DB38D] font-bold">— Princípio do Teste Holístico na Thoughtworks</p>
+            <p class="mt-4 text-[#4DB38D] font-bold">— W. Edwards Deming</p>
+            <blockquote class="text-xl italic font-light leading-relaxed mt-6">
+                "Testing shows the presence of bugs, not their absence."
+            </blockquote>
+            <p class="mt-4 text-[#4DB38D] font-bold">— Edsger W. Dijkstra</p>
+        </div>
+    </section>
+</div>
+
+<!-- Holistic Testing: Conceitos Detalhados -->
+<div class="max-w-6xl mx-auto px-8 mb-20">
+    <section class="mb-20">
+        <h2 class="text-3xl text-[#003D4F] mb-6">🔍 O que é Holistic Testing?</h2>
+        <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 mb-8">
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                <strong>Holistic Testing</strong> (Teste Holístico) é uma abordagem da Thoughtworks que considera a qualidade como responsabilidade de todo o time, não apenas dos testadores. Em vez de tratar os testes como uma fase isolada, a estratégia holística integra atividades de qualidade em cada etapa do ciclo de desenvolvimento.
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                O conceito foi popularizado por Janet Gregory e Lisa Crispin no livro "Agile Testing" e expandido pela Thoughtworks com foco em:
+            </p>
+            <ul class="space-y-3 ml-6 text-gray-700">
+                <li class="flex items-start gap-2"><span class="text-[#F2617A] font-bold">•</span> <strong>Shift-Left:</strong> Mover atividades de teste para as fases iniciais (requisitos, design)</li>
+                <li class="flex items-start gap-2"><span class="text-[#F2617A] font-bold">•</span> <strong>Shift-Right:</strong> Monitorar qualidade em produção (observabilidade, feature flags)</li>
+                <li class="flex items-start gap-2"><span class="text-[#F2617A] font-bold">•</span> <strong>Pirâmide de Testes:</strong> Mais testes unitários, menos testes E2E (Mike Cohn)</li>
+                <li class="flex items-start gap-2"><span class="text-[#F2617A] font-bold">•</span> <strong>Quadrantes de Teste Ágil:</strong> Classificar testes por propósito (negócio vs. tecnologia, guiar vs. criticar)</li>
+                <li class="flex items-start gap-2"><span class="text-[#F2617A] font-bold">•</span> <strong>Continuous Testing:</strong> Testes automatizados integrados na pipeline de CI/CD</li>
+                <li class="flex items-start gap-2"><span class="text-[#F2617A] font-bold">•</span> <strong>Testes Exploratórios:</strong> Investigação criativa para encontrar bugs que automação não encontra</li>
+                <li class="flex items-start gap-2"><span class="text-[#F2617A] font-bold">•</span> <strong>Quality Engineering:</strong> Tratar qualidade como disciplina de engenharia, não apenas validação</li>
+            </ul>
+        </div>
+
+        <!-- Como Aplicar -->
+        <h3 class="text-2xl text-[#003D4F] mb-4">🎯 Como Aplicar na Prática</h3>
+        <div class="grid md:grid-cols-2 gap-6 mb-12">
+            <div class="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-xl p-6 border border-teal-200">
+                <h4 class="font-bold text-[#003D4F] mb-3">1. Na Sprint Planning</h4>
+                <p class="text-gray-700 text-sm">Discuta critérios de aceite, identifique riscos e defina a estratégia de testes ANTES do desenvolvimento começar. Use técnicas como "3 Amigos" (Dev + QA + PO).</p>
+            </div>
+            <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-6 border border-pink-200">
+                <h4 class="font-bold text-[#003D4F] mb-3">2. Durante o Desenvolvimento</h4>
+                <p class="text-gray-700 text-sm">TDD, pair testing, code review focado em testabilidade, testes unitários e de integração rodando na CI. O dev é o primeiro testador.</p>
+            </div>
+            <div class="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border border-amber-200">
+                <h4 class="font-bold text-[#003D4F] mb-3">3. Antes do Release</h4>
+                <p class="text-gray-700 text-sm">Testes exploratórios, testes de regressão automatizados, testes de performance com Artillery/k6, validação de acessibilidade e segurança.</p>
+            </div>
+            <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-6 border border-purple-200">
+                <h4 class="font-bold text-[#003D4F] mb-3">4. Em Produção (Shift-Right)</h4>
+                <p class="text-gray-700 text-sm">Monitoramento com Datadog/New Relic, alertas de anomalia, feature flags para rollback, chaos engineering e observabilidade end-to-end.</p>
+            </div>
+        </div>
+
+        <!-- Livros Recomendados -->
+        <h3 class="text-2xl text-[#003D4F] mb-4">📚 Livros Essenciais</h3>
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                <p class="text-3xl mb-3">📕</p>
+                <h4 class="font-bold text-[#003D4F] mb-1">Agile Testing</h4>
+                <p class="text-sm text-gray-500 mb-2">Janet Gregory & Lisa Crispin</p>
+                <p class="text-xs text-gray-600">A bíblia do teste ágil. Introduz os Quadrantes de Teste e a mentalidade de "whole team quality".</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                <p class="text-3xl mb-3">📗</p>
+                <h4 class="font-bold text-[#003D4F] mb-1">More Agile Testing</h4>
+                <p class="text-sm text-gray-500 mb-2">Janet Gregory & Lisa Crispin</p>
+                <p class="text-xs text-gray-600">Continuação com práticas avançadas: testes em DevOps, continuous delivery e estratégias para times distribuídos.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                <p class="text-3xl mb-3">📘</p>
+                <h4 class="font-bold text-[#003D4F] mb-1">Continuous Delivery</h4>
+                <p class="text-sm text-gray-500 mb-2">Jez Humble & David Farley</p>
+                <p class="text-xs text-gray-600">Fundamentos de CI/CD, deployment pipeline e como automatizar o caminho do código até produção com qualidade.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                <p class="text-3xl mb-3">📙</p>
+                <h4 class="font-bold text-[#003D4F] mb-1">Lessons Learned in Software Testing</h4>
+                <p class="text-sm text-gray-500 mb-2">Cem Kaner, James Bach & Bret Pettichord</p>
+                <p class="text-xs text-gray-600">293 lições práticas sobre teste de software cobrindo gestão, técnicas, automação e carreira.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                <p class="text-3xl mb-3">📒</p>
+                <h4 class="font-bold text-[#003D4F] mb-1">Exploratory Software Testing</h4>
+                <p class="text-sm text-gray-500 mb-2">James Whittaker</p>
+                <p class="text-xs text-gray-600">Técnicas de teste exploratório com tours guiados para encontrar bugs que automação não detecta.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                <p class="text-3xl mb-3">📓</p>
+                <h4 class="font-bold text-[#003D4F] mb-1">The Art of Software Testing</h4>
+                <p class="text-sm text-gray-500 mb-2">Glenford Myers</p>
+                <p class="text-xs text-gray-600">Clássico atemporal que define os fundamentos de teste de software desde 1979, atualizado para práticas modernas.</p>
+            </div>
+        </div>
+
+        <!-- Cursos -->
+        <h3 class="text-2xl text-[#003D4F] mb-4">🎓 Cursos Recomendados</h3>
+        <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 mb-12">
+            <ul class="space-y-4">
+                <li><a href="https://testautomationu.applitools.com/" target="_blank" class="text-[#003D4F] hover:text-[#F2617A] font-medium">Test Automation University (Applitools)</a> — Cursos gratuitos de automação com diversos frameworks</li>
+                <li><a href="https://www.ministryoftesting.com/" target="_blank" class="text-[#003D4F] hover:text-[#F2617A] font-medium">Ministry of Testing</a> — Maior comunidade global de QA com cursos e certificações</li>
+                <li><a href="https://www.coursera.org/learn/introduction-software-testing" target="_blank" class="text-[#003D4F] hover:text-[#F2617A] font-medium">Introduction to Software Testing (Coursera/University of Minnesota)</a> — Fundamentos acadêmicos de teste</li>
+                <li><a href="https://www.udemy.com/topic/software-testing/" target="_blank" class="text-[#003D4F] hover:text-[#F2617A] font-medium">Udemy Software Testing</a> — Cursos variados (ISTQB, Selenium, Cypress, API testing)</li>
+                <li><a href="https://www.istqb.org/" target="_blank" class="text-[#003D4F] hover:text-[#F2617A] font-medium">ISTQB Foundation Level</a> — Certificação internacional reconhecida mundialmente em QA</li>
+                <li><a href="https://iterasys.com.br/pt" target="_blank" class="text-[#003D4F] hover:text-[#F2617A] font-medium">Iterasys</a> — Escola brasileira referência em QA com cursos de CTFL e automação</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Seção Kiro -->
+    <section class="mb-20">
+        <h2 class="text-3xl text-[#003D4F] mb-6">🤖 Kiro: IA para Desenvolvimento e QA</h2>
+        <div class="bg-gradient-to-br from-[#003D4F] to-[#005566] rounded-2xl shadow-lg p-8 text-white mb-8">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Kiro</strong> é um ambiente de desenvolvimento assistido por IA da AWS que funciona como um par de programação inteligente. Ele lê código, documentação, Jira e Confluence simultaneamente para acelerar análise, automação de testes e desenvolvimento.
+            </p>
+            <p class="text-lg leading-relaxed">
+                Para QAs, Kiro é um acelerador que permite absorver contexto complexo de projetos em minutos, gerar cenários de teste, criar automações e investigar bugs com rastreabilidade completa.
+            </p>
+        </div>
+
+        <h3 class="text-2xl text-[#003D4F] mb-4">✨ Vantagens do Kiro</h3>
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-[#4DB38D]">
+                <h4 class="font-bold text-[#003D4F] mb-2">📋 Spec-Driven Development</h4>
+                <p class="text-sm text-gray-700">Crie especificações formais com requisitos, critérios de aceite e tarefas rastreáveis antes de escrever código. O Kiro gera implementação a partir das specs.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-[#F2617A]">
+                <h4 class="font-bold text-[#003D4F] mb-2">🔄 Contexto Multi-Source</h4>
+                <p class="text-sm text-gray-700">Lê repositórios, documentação no Confluence, cards do Jira e APIs simultaneamente. Reduz o tempo de onboarding de meses para semanas.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-[#4DB38D]">
+                <h4 class="font-bold text-[#003D4F] mb-2">🧪 Geração de Testes</h4>
+                <p class="text-sm text-gray-700">Analisa o código e sugere cenários de teste E2E, unitários e de integração. Entende a lógica de negócio e propõe edge cases relevantes.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-[#F2617A]">
+                <h4 class="font-bold text-[#003D4F] mb-2">🐛 Investigação de Bugs</h4>
+                <p class="text-sm text-gray-700">Ajuda a reproduzir, diagnosticar e propor correções para bugs. Analisa logs, traces e código para identificar a causa raiz rapidamente.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-[#4DB38D]">
+                <h4 class="font-bold text-[#003D4F] mb-2">📝 Documentação Automática</h4>
+                <p class="text-sm text-gray-700">Gera documentação técnica, guias de setup, READMEs e handover documents a partir do código existente.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-[#F2617A]">
+                <h4 class="font-bold text-[#003D4F] mb-2">💰 Custo-Benefício</h4>
+                <p class="text-sm text-gray-700">Modo "Auto" otimiza uso de tokens. Custo médio baixo por dia de uso intenso, com controle de budget integrado.</p>
+            </div>
+        </div>
+
+        <h3 class="text-2xl text-[#003D4F] mb-4">🚀 Como Usar o Kiro</h3>
+        <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+            <ol class="space-y-4 text-gray-700">
+                <li class="flex items-start gap-3">
+                    <span class="bg-[#003D4F] text-white rounded-full w-7 h-7 flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+                    <div><strong>Instale o Kiro</strong> — Baixe em <a href="https://kiro.dev" target="_blank" class="text-[#003D4F] hover:text-[#F2617A] underline">kiro.dev</a> e conecte com sua conta AWS ou GitHub.</div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="bg-[#003D4F] text-white rounded-full w-7 h-7 flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+                    <div><strong>Abra seu projeto</strong> — O Kiro analisa automaticamente a estrutura, linguagens e dependências do repositório.</div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="bg-[#003D4F] text-white rounded-full w-7 h-7 flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+                    <div><strong>Configure Steering Files</strong> — Defina regras, padrões e contexto do projeto em arquivos `.kiro/steering/` para guiar a IA.</div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="bg-[#003D4F] text-white rounded-full w-7 h-7 flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
+                    <div><strong>Converse e peça</strong> — Descreva o que precisa (criar teste, investigar bug, gerar doc) e o Kiro executa com acesso ao código e ferramentas.</div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="bg-[#003D4F] text-white rounded-full w-7 h-7 flex items-center justify-center text-sm font-bold flex-shrink-0">5</span>
+                    <div><strong>Revise e aprove</strong> — No modo Supervised, cada mudança é apresentada para aprovação. No Autopilot, o Kiro age autonomamente.</div>
+                </li>
+            </ol>
         </div>
     </section>
 </div>
