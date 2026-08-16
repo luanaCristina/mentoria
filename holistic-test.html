@@ -384,25 +384,41 @@
             title: "Fase de Descoberta",
             desc: "O QA atua como um facilitador de qualidade. Ele questiona requisitos, identifica caminhos de erro antes do código existir e garante que os critérios de aceite (EARS) sejam testáveis.",
             kiro: "Use o MCP Jira para ler os requisitos e o comando '/create-spec' para antecipar cenários de teste.",
-            metrics: ["Testabilidade", "Ambiguidade", "Cenários Borda"]
+            metrics: [
+                { name: "Testabilidade", desc: "Capacidade de um requisito ser verificado por meio de testes. Um requisito testável é claro, mensurável e sem ambiguidade.", example: "Requisito ruim: 'O sistema deve ser rápido'. Requisito testável: 'A API deve responder em menos de 200ms para 95% das requisições'.", howTo: "Na review de requisitos, pergunte: 'Como eu testo isso?' Se não conseguir responder, o requisito precisa ser refinado." },
+                { name: "Ambiguidade", desc: "Grau de imprecisão nos requisitos que pode levar a interpretações diferentes entre dev, QA e PO.", example: "'O usuário deve poder cancelar o pedido facilmente' — O que é 'facilmente'? Em até 2 cliques? Em qualquer status do pedido?", howTo: "Use a técnica dos 3 Amigos: reúna Dev + QA + PO para discutir cada história antes da sprint. Documente dúvidas como critérios de aceite." },
+                { name: "Cenários Borda", desc: "Situações limite ou incomuns que podem causar falhas no sistema (edge cases).", example: "E se o usuário tentar pagar com cartão expirado? E se a conexão cair no meio da transação? E se o CPF tiver formatação inválida?", howTo: "Para cada funcionalidade, pergunte: 'O que acontece SE...?' com variações de dados inválidos, limites numéricos, timeout e concorrência." }
+            ]
         },
         dev: {
             title: "Desenvolvimento",
             desc: "A qualidade é construída em par. O foco é em feedback rápido através de TDD e automação em camadas baixas (Unit/Integration). O time inteiro é dono da qualidade.",
             kiro: "Agent Hooks rodam testes a cada save. Steering Files garantem que a IA escreva código seguindo os padrões do projeto.",
-            metrics: ["Cobertura", "Feedback Loop", "Clean Code"]
+            metrics: [
+                { name: "Cobertura", desc: "Percentual do código que é exercitado pelos testes automatizados. Indica quanto do comportamento está protegido.", example: "Uma função com 3 branches (if/else/default): se o teste só testa o caminho feliz, a cobertura é 33%. Idealmente, cada branch deve ter pelo menos um teste.", howTo: "Use ferramentas como Istanbul/NYC (JS), JaCoCo (Java) ou Coverage.py. Defina metas progressivas: 60% → 70% → 80%. Priorize cobertura em código crítico (pagamentos, auth)." },
+                { name: "Feedback Loop", desc: "Tempo entre uma mudança no código e a descoberta de um problema. Quanto menor, mais barato corrigir.", example: "Teste unitário falha em 2 segundos (barato). Bug encontrado em produção após 2 semanas (caro — requer rollback, investigação, hotfix).", howTo: "Implemente testes em camadas: unitários (segundos) → integração (minutos) → E2E (minutos) → produção (monitoramento contínuo). Use pre-commit hooks para feedback instantâneo." },
+                { name: "Clean Code", desc: "Código limpo, legível e manutenível que facilita a testabilidade e reduz a probabilidade de bugs.", example: "Função com 200 linhas e 10 parâmetros é difícil de testar. Refatorar em funções menores com responsabilidade única facilita criar testes unitários.", howTo: "Aplique princípios SOLID, DRY e KISS. Use SonarQube para identificar code smells. Em code review, questione: 'Isso é fácil de testar?'" }
+            ]
         },
         deploy: {
             title: "Entrega e CI/CD",
             desc: "Validamos a integridade do sistema como um todo. Contratos de API, testes de fumaça e segurança automatizada garantem um deploy sem medo.",
             kiro: "Agent Skills de Segurança e Performance validam o código antes do Merge Request ser aprovado.",
-            metrics: ["Estabilidade", "Contratos", "Segurança"]
+            metrics: [
+                { name: "Estabilidade", desc: "Capacidade da pipeline de CI/CD de executar com sucesso de forma consistente, sem falhas intermitentes (flaky tests).", example: "Se a pipeline falha 3 de cada 10 vezes sem motivo real (timeout, dependência externa instável), o time perde confiança e ignora alertas.", howTo: "Isole testes flaky em uma suite separada. Use retry strategy com limite. Monitore taxa de sucesso da pipeline (meta: >95%). Investigue e corrija flaky tests semanalmente." },
+                { name: "Contratos", desc: "Acordos formais entre serviços (producer/consumer) sobre o formato de dados trocados via API.", example: "O serviço de pagamento espera {amount: number, currency: string}. Se o front enviar {valor: number}, o contrato é quebrado e a integração falha.", howTo: "Use Consumer-Driven Contracts com Pact ou Spring Cloud Contract. Rode testes de contrato na CI para detectar quebras antes do deploy. Documente APIs com OpenAPI/Swagger." },
+                { name: "Segurança", desc: "Verificação automatizada de vulnerabilidades no código, dependências e configurações antes do deploy.", example: "Dependência npm com CVE crítica (ex: lodash com prototype pollution). SAST encontra SQL injection em query concatenada.", howTo: "Integre SAST (SonarQube, Snyk), DAST (OWASP ZAP) e SCA (Dependabot) na pipeline. Bloqueie deploys com vulnerabilidades críticas. Execute OWASP Top 10 checks periodicamente." }
+            ]
         },
         ops: {
             title: "Operações (Monitoramento)",
             desc: "Shift-Right! Testamos em produção usando Observabilidade. Analisamos logs, métricas e o comportamento real do usuário para retroalimentar o backlog.",
             kiro: "Conecte o MCP Datadog para trazer logs de erro reais para dentro da IDE e corrigir bugs em minutos.",
-            metrics: ["MTTR", "Disponibilidade", "Feedback Real"]
+            metrics: [
+                { name: "MTTR", desc: "Mean Time To Recovery — tempo médio entre a detecção de um incidente e sua resolução completa.", example: "Incidente: API retornando 500 para 10% dos requests. Detecção às 14:00, causa raiz identificada às 14:15, fix deployado às 14:30. MTTR = 30 min.", howTo: "Reduza MTTR com: alertas bem configurados (Datadog/PagerDuty), runbooks documentados, feature flags para rollback instantâneo, e postmortems para prevenir recorrência." },
+                { name: "Disponibilidade", desc: "Percentual de tempo que o sistema está operacional e acessível para os usuários (uptime).", example: "SLA de 99.9% = máximo de 8.7 horas de downtime por ano. SLA de 99.99% = máximo de 52 minutos por ano.", howTo: "Defina SLIs (indicadores), SLOs (objetivos) e SLAs (acordos). Monitore com health checks, synthetic tests (Datadog Synthetics) e alertas de latência p99. Use chaos engineering para testar resiliência." },
+                { name: "Feedback Real", desc: "Dados de comportamento real dos usuários em produção que retroalimentam decisões de produto e qualidade.", example: "Analytics mostra que 40% dos usuários abandonam o checkout na etapa de endereço. Isso indica UX ruim ou bug no autocomplete de CEP.", howTo: "Implemente observabilidade com traces distribuídos (OpenTelemetry), analytics de produto (Amplitude/Mixpanel), session replay (FullStory) e error tracking (Sentry). Alimente o backlog com dados reais." }
+            ]
         }
     };
 
@@ -411,16 +427,40 @@
         document.getElementById('sdlc-title').innerText = data.title;
         document.getElementById('sdlc-description').innerText = data.desc;
         document.getElementById('sdlc-kiro-text').innerText = data.kiro;
-        
+
         const metricsContainer = document.getElementById('sdlc-metrics');
-        metricsContainer.innerHTML = data.metrics.map(m => `
-            <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 text-center">
-                <span class="block text-xl font-bold text-[#F2617A]">${m}</span>
+        metricsContainer.innerHTML = data.metrics.map((m, i) => `
+            <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 text-center cursor-pointer hover:bg-gray-100 hover:border-[#F2617A] transition-all" onclick="showMetricDetail('${phase}', ${i})">
+                <span class="block text-xl font-bold text-[#F2617A]">${m.name}</span>
+                <span class="block text-xs text-gray-400 mt-1">clique para detalhes</span>
             </div>
         `).join('');
 
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.getElementById(`btn-${phase}`).classList.add('active');
+    }
+
+    function showMetricDetail(phase, index) {
+        const metric = sdlcData[phase].metrics[index];
+        const metricsContainer = document.getElementById('sdlc-metrics');
+        metricsContainer.parentElement.querySelector('#sdlc-detail')?.remove();
+
+        const detailHTML = `
+            <div id="sdlc-detail" class="col-span-2 md:col-span-1 w-full md:w-auto bg-white rounded-2xl shadow-lg border border-[#F2617A]/30 p-6 animate-fade-in">
+                <h4 class="text-lg font-bold text-[#003D4F] mb-2">${metric.name}</h4>
+                <p class="text-sm text-gray-700 mb-3">${metric.desc}</p>
+                <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-3">
+                    <span class="text-xs font-bold text-amber-700 uppercase">Exemplo</span>
+                    <p class="text-sm text-gray-700 mt-1">${metric.example}</p>
+                </div>
+                <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 mb-4">
+                    <span class="text-xs font-bold text-emerald-700 uppercase">Como Aplicar</span>
+                    <p class="text-sm text-gray-700 mt-1">${metric.howTo}</p>
+                </div>
+                <button onclick="this.parentElement.remove()" class="w-full bg-[#003D4F] text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-[#005566] transition-colors">← Voltar</button>
+            </div>
+        `;
+        metricsContainer.insertAdjacentHTML('afterend', detailHTML);
     }
 
     // Inicialização
